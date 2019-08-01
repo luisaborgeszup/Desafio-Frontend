@@ -1,0 +1,222 @@
+
+<!-- saved from url=(0045)https://marvelapp.com/39776de/screen/39161014 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@marvelapp">
+    <!-- <meta name="twitter:creator" content="@"> -->
+    <meta name="twitter:title" content="Prova Front-End">
+    <meta name="twitter:description" content="Marvel Prototype for Prova Front-End">
+    <!-- <meta name="twitter:image:src" content="https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=95&amp;fake=.png"> -->
+    <meta name="twitter:player" content="https://marvelapp.com/39776de?emb=1&amp;">
+    <meta name="twitter:player:width" content="1311">
+    <meta name="twitter:player:height" content="723">
+    <meta name="twitter:player:stream" content="https://marvelapp.com/39776de?emb=1&amp;">
+    <meta name="twitter:player:stream:content_type" content="image/jpeg">
+
+    <meta property="og:title" content="Prova Front-End">
+    <meta property="og:image" content="https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=95&amp;fake=.png">
+    <meta property="og:site_name" content="Marvel Prototyping">
+    <meta property="og:description" content="Marvel Prototype for Prova Front-End">
+
+<script type="text/javascript" async="" src="./Prova Front-End_files/{app_id}"></script><script async="" src="./Prova Front-End_files/analytics.js"></script><script type="text/javascript" src="./Prova Front-End_files/polyfill.min.js"></script>
+<link type="text/css" href="./Prova Front-End_files/prototype.3f15abc627b9d30a75f6.css" rel="stylesheet">
+<script id="settings" type="application/json">{"CANVAS_EASEL_HOST": "https://easel.marvelapp.com", "DISALLOWED_FILENAME_CHARACTERS": "\\\"\u003C\u003E=", "MIXPANEL_TOKEN": "e12a882f7a6eaf4730758a8a61ac2501", "ENVIRONMENT": "live", "BOX_COM_CLIENT_ID": "wo18m8uju79g09r64gf5r7xm59xf6zif", "ENABLE_INTERCOM": true, "CANVAS_TOKEN_PROVIDER_HOST": "", "ENABLE_HUBSPOT": true, "ENABLE_FB": true, "MARVEL_CORS_PROXY": "https://marvelapp.com/proxy/", "INTERCOM_APP_ID": "9afe6b55dbac3807f4bc7ebcdf1fc0470c2454f1", "MKIII_HOST": "https://beta-v3.marvelapp.com", "STRIPE_PUBLISHABLE": "pk_live_1afBzKMbfYd1vhu8lsneB1Zb", "BOB_ROSS_HOST": "https://bob-ross.marvelapp.com", "PUSHER": {"PROTOTYPE_CHANNEL_PREFIX": "prototype-production_", "PROJECT_CHANNEL_PREFIX": "private-project-production_", "PRESENCE_CHANNEL_PREFIX": "presence-presence-production_", "USER_CHANNEL_PREFIX": "private-user-production_", "ANON_CHANNEL_PREFIX": "anon-production_", "EXPLORE_CHANNEL_PREFIX": "explore-production_"}, "BASE_URL": "https://marvelapp.com", "APP_SENTRY_DSN": "https://873a8ca087a0492d8d22b808d6931306@sentry.io/97119", "USER_TEST_RECORDING_SENTRY_DSN": "https://b961e7063f854c859a78f1c4a9e5f3a5@sentry.io/1503747", "DISABLE_COMMENT_WRITES": false, "LAUNCH_DARKLY_API_KEY": "5b993ab7e7585f1695351237", "GOOGLE_CLIENT_ID": "308573482263-ddask8oq90fg9n9o5t6ub8190v5nqvta.apps.googleusercontent.com", "PROTOTYPE_SENTRY_DSN": "https://883389dfaa2349e891ef7b4f0a6cec51@sentry.io/96884", "ENABLE_GA": true, "SITE_SENTRY_DSN": "https://3fad520e195b4e168ceb79d16cbce216@app.getsentry.com/38273", "REVISION": "b87086263d"}</script>
+<script type="text/javascript">
+(function () {
+    // Define if this is offline
+    var offline = false;
+
+    var trackerReady;
+
+    
+        function initGoogleAnalytics() {
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-38711157-1', 'auto');
+          ga('send', 'pageview', "prototype-view");
+        }
+
+        function initIntercom() {
+          var w = window;
+          var ic = w.Intercom;
+          if (typeof ic === "function") {
+              ic('reattach_activator');
+              ic('update', intercomSettings);
+          } else {
+              var d = document;
+              var i = function () {
+                  i.c(arguments)
+              };
+              i.q = [];
+              i.c = function (args) {
+                  i.q.push(args)
+              };
+              w.Intercom = i;
+              function l() {
+                  var s = d.createElement('script');
+                  s.type = 'text/javascript';
+                  s.async = true;
+                  s.src = 'https://widget.intercom.io/widget/{app_id}';
+                  var x = d.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(s, x);
+              }
+
+              if (w.attachEvent) {
+                  w.attachEvent('onload', l);
+              } else {
+                  w.addEventListener('load', l, false);
+              }
+          }
+        }
+
+        function initTracker() {
+          return fetch('/api/v1/integration/snippet/?project_id=2759917')
+            .then(function(response) {
+              if (!response.ok) {
+                return Promise.reject(response);
+              }
+              return response.json();
+            })
+            .then(function(response) {
+              var gaSnippet = response.snippets.filter(function(snippet) {
+                return snippet.provider === 'ga';
+              })[0];
+              if (!gaSnippet) {
+                return Promise.reject(response);
+              }
+              ga('create', gaSnippet.tracker_id, 'auto', 'marvelUserGATracker');
+            })
+            .catch(function(error){
+              // catching it so it does not create noise in the console
+            });
+        }
+
+        initGoogleAnalytics();
+        initIntercom();
+        trackerReady = initTracker();
+    
+
+    window.MARVELAPP = {
+      offline: offline,
+      projectId: "39776de",
+      
+        projectConfig: {"last_active":"2018-03-02 15:17:33.280213","is_archived":false,"owner":{"username":"jonatas.xavier@zup.com.br","id":1531756,"avatar":{"url":"https://secure.gravatar.com/avatar/cdb23da216694ba34e85018f00f181b1?s=300&d=blank","colour":"#009EEB"},"company_id":null},"likes":0,"owner_fk":1531756,"images":{"1":{"preview_thumbnail":null,"hotspots":[],"is_desktop":false,"seq":1,"source_platform_human":"Sketch","top_pixel_colour":"44, 62, 80, 1.0","height":723,"source_platform":"8","es_canvas_id":null,"is_app_icon":false,"id":39161014,"size":143764,"display_name":null,"uuid":"feaf58af-7954-4f99-b2fc-2c1d35dc00a9","bright_pixel_colour":null,"width":1311,"comment_count":0,"version":25,"hotspots_delta":"6bd0047639672ea66369e35093bc4c54","thumbnail":"https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=90&fit=fit&height=230&fake=.png","revision":null,"status":5,"preview_thumbnail_640":"https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?width=640&quality=95&height=456&crop=640:456,offset-y0&fake=.png","description":null,"section_id":null,"bottom_pixel_colour":"255, 255, 255, 1.0","content_type":"image/png","name":"Artboard 01.png","layer_sync_uri":"","url":"https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=95&fake=.png","layer_parent":null,"directory":null,"external_id":"353A387B-A35F-46B2-8D8F-07F0A1866357","status_pixel_colour":"255, 255, 255, 1.0"}},"team_name":null,"project_image":"https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=90&fit=fit&height=230&fake=.png","id":2759917,"published_time":"2018-03-01 20:09:45","team_fk":null,"pusher_channel":"private-project-production_2759917","uuid":"7e483be1-1b41-43e9-807d-4cfa1cc2f616","sync_started":null,"total_size":1077714,"bright_pixel_colour":null,"team_icon":null,"state":1,"sequence_delta":"f91e6738c4b27ebc56d7da8138eb7fa2","vanity_url":"https://marvelapp.com/39776de","user_test_pk":null,"sync_ended":null,"version":1,"hotspots_delta":"db6b3d85ad2444596f05c355e3fccabb","type":1,"owner_username":"jonatas.xavier@zup.com.br","explore_url":"https://marvelapp.com/explore/2759917/prova-front-end","embed_url":"https://marvelapp.com/39776de?emb=1&iosapp=false&frameless=false","description":"None","views":0,"es_canvas_id":null,"company":null,"num_images":10,"human_url":null,"pusher_public_channel":"prototype-production_2759917","isprivate":0,"project_base_image":"https://marvel-live.freetls.fastly.net/serve/2018/3/f3553a01954e465a8f374dfd93014fb2.png?quality=95&fake=.png","password":null,"properties":[{"read_only":true,"id":56333138,"uuid":"4bcc4eed-c4ed-4823-8b11-b6dc5fa3cf6d","name":"prj-lookback-ever-enabled","value":"0","description":"Lookback ever been enabled for this project"},{"read_only":true,"id":56333136,"uuid":"978ef3f0-8130-4126-9248-dd48379012a2","name":"prj-comments-ever-enabled","value":"1","description":"Comments have ever been enabled for this project"},{"read_only":false,"id":56333142,"uuid":"e54082c1-cae1-4b6d-978d-a681b1d3cee1","name":"ui-prj-remove-status","value":"0","description":"Removes status bar on project"},{"read_only":false,"id":56333144,"uuid":"fb2bedb8-99d1-404e-bd8a-508a4adf631b","name":"ui-prj-center-image","value":"0","description":"Center image instead of aligning left"},{"read_only":false,"id":56333146,"uuid":"6c4049fc-5391-424e-a60d-9c17f427c484","name":"ui-prj-prototype-background-hex","value":"FFFFFF","description":"Set background for prototype background"},{"read_only":false,"id":56333153,"uuid":"ad42c374-fd57-4b51-b473-44c12717bd20","name":"ui-prj-show-hints","value":"0","description":"Show hints on prototype"},{"read_only":false,"id":56333155,"uuid":"84ddfa28-7748-455a-926d-5453ebfbe834","name":"ui-prj-frame-colour","value":"black","description":"Set phone colour"},{"read_only":false,"id":56333140,"uuid":"1610c727-273e-451d-aa20-324a73f363c8","name":"ui-prj-responsive","value":"0","description":"Set images as responsive"},{"read_only":false,"id":56333148,"uuid":"65f39f1b-d3c4-420d-8e0e-6d8b996855f7","name":"ui-prj-center-overflow","value":"0","description":"Center images and hide overflow on non-responsive images"},{"read_only":false,"id":56333139,"uuid":"71330776-fa16-4699-980e-e4dc0351467a","name":"ui-prj-background-hex","value":"FFFFFF","description":"Set background colour for prototype preview"},{"read_only":false,"id":56333141,"uuid":"6a956609-c28c-4fbf-b9c1-be6640c61c18","name":"ui-prj-thumbnail-width","value":"0","description":"Set thumbnail width for project view"},{"read_only":false,"id":56333152,"uuid":"2f6774fc-fcf4-4ebd-89cd-bed8932e82d1","name":"prj-comments-enabled","value":"1","description":"Enable comments for this project"},{"read_only":false,"id":56333150,"uuid":"e4ecbbd0-f1aa-4574-80b2-048f0cd1e107","name":"ui-prj-disable-frame","value":"0","description":"New site features for user"},{"read_only":false,"id":79281348,"uuid":"3760b9a5-7773-4494-9dfe-9f3eb41d71e3","name":"ui-proj-thumbnail-size","value":"M","description":"Marvel 3 thumbnail size for grid"},{"read_only":false,"id":56333137,"uuid":"afd2b1f7-c9dc-4ddf-9d11-e385ba1ce72f","name":"ui-prj-status-bar","value":"0","description":"Set status bar background colour"},{"read_only":false,"id":56333154,"uuid":"70e58fe5-4bb6-4fbe-86ca-b2ebc6ca26b9","name":"ui-prj-explore-background-hex","value":"#000000","description":"Set background colour for explore view"},{"read_only":false,"id":56333149,"uuid":"92782678-1e28-4e8b-9ae0-955371600b17","name":"prj-lookback-enabled","value":"0","description":"Enable Lookback for this project"},{"read_only":false,"id":56333135,"uuid":"52b9dc99-254d-40d8-90ee-5d5bd183d11e","name":"ui-prj-frame","value":"web-frame","description":"Set phone frame"},{"read_only":false,"id":56333147,"uuid":"4308e1ba-7255-42b2-ae91-bfe028b62ac2","name":"ui-prj-disable-swipe","value":"1","description":"Disable prototype swipes"},{"read_only":false,"id":56333151,"uuid":"b001e546-f6da-4935-83cb-18d8b9177e3a","name":"ui-prj-orientation","value":"portrait","description":"Set phone orientation"},{"read_only":false,"id":56333145,"uuid":"bc13b604-2d15-4e47-b681-995d52a996bd","name":"ui-prj-retina-scale","value":"0","description":"Scale images to half their original width for retina images"}],"app_icon":null,"canvas_images":[],"is_deleted":false,"name":"Prova Front-End","date_modified":"2019-08-01 18:44:41","sections":[],"pusher_anon_channel_prefix":"anon-production","cursor":"","team_uri":null,"published":false,"is_syncing":0,"date_created":"2018-03-01 20:08:47","is_pro":false,"resource_uri":"/project/2759917/"},
+        settings: JSON.parse(document.getElementById('settings').textContent),
+        currentUser: {},
+      
+      iOSApp: 0,
+      role: "Client",
+
+      trackAsync: function(location, screenName) {
+        
+            trackerReady.then(function() {
+                ga('marvelUserGATracker.send', 'pageview', {
+                    page: location.pathname + screenName,
+                    title: screenName
+                });
+            });
+        
+      }
+    };
+})();
+</script>
+<style type="text/css"></style><style type="text/css">@keyframes resizeanim { from { opacity: 0; } to { opacity: 0; } } .resize-triggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; } .resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }</style><title>Prova Front-End</title><link href="https://marvelapp.com/static/apple-touch-icon-1.e213059d41e8ceb42243aabcfa8deb68.png" rel="apple-touch-icon" data-react-helmet="true"><link href="https://marvelapp.com/static/apple-touch-icon-1.e213059d41e8ceb42243aabcfa8deb68.png" rel="icon" data-react-helmet="true"><link href="https://marvelapp.com/static/favicon.fcc1c1ce0c1f9a5fc40a597379ebe6ff.png" rel="shortcut icon" type="image/png" data-react-helmet="true"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" data-react-helmet="true"><meta name="apple-mobile-web-app-status-bar-style" content="black" data-react-helmet="true"></head>
+<body>
+  <div id="prototype"><div><div id="marvel-prototype-viewer" class="height-100" style="transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s; padding-left: 0px;"><div class="height-100 position-relative"><div class="Project__project___3KZeN height-100 width-100"><div><div class="Sidebar__sidebar___3jZX3 position-fixed userSelect-none zi-300"><div class="general__wrap___kYC0C display-inlineBlock"><div class="general__container___3gViq display-flex align__top___23GkX alignItems-flexStart"><div class="size__xs___1JOKe marginRight-xs"><div class="general__trigger___1J8k1 display-inlineBlock position-relative"><div class="color__slate___1n2cC c-slate fill__smoke--xd___2mqKO fill-smoke--xd general__button___1ugJt cursor-pointer display-inlineBlock fontSize-s position-relative transitionDuration-l transitionProperty-all transitionTimingFunction-cb--scaleOut hover__background___1Vfco position__solo___iTu-P borderRadius-s" style="height: 34px; line-height: 34px; padding-left: 10px; padding-right: 10px;"><div class="">Menu</div></div><div class="general__popover___3gD5F concealed position-absolute zi-chrome position__top-left___3kXNg general__hasAnimation___BRh6O transitionDuration-l transitionTimingFunction-cv-easeInOutBack" style="margin-bottom: 10px;"><div class="position__overlay-top___3XAxC position-absolute" style="bottom: -10px; height: 10px;"></div><div class="type__default___1U7Tw bg-white boxShadow-subtle size__small___1Pb-d borderRadius-s general__inner___2-3W9" style="min-width: 220px; width: auto;"><div class="SidebarMenu__header___1VamJ borderBottomWidth-1 borderColor-smoke borderStyle-solid borderWidth-0 marginLeftRight-s paddingLeftRight-xs paddingTopBottom-m userSelect"><div class="SidebarMenu__heading___3YQj8 c-black fontSize-xl fontWeight-5 lineHeight-l">Prova Front-End</div><div class="SidebarMenu__name___DPApM fontWeight-3 c-slate fontSize-m lineHeight-xl whiteSpace-nowrap">by <span class="SidebarMenu__owner___13N75 fontWeight-3">jonatas.xavier@zup.com.br</span></div><div class="SidebarMenu__modified___1Vo6C fontWeight-3 c-silver fontSize-s lineHeight-s whiteSpace-nowrap">Modified over 1 year ago</div></div><div class="SidebarMenu__items___3eM6F paddingTopBottom-xxs"><a class="SidebarMenuItem__item___3QS10 c-marvel--hover c-black cusror-pointer display-block margin-s paddingLeftRight-xs"><span class="SidebarMenuItem__link___epEP4 fontSize-m">Go to the start</span><div class="SidebarMenuItem__keyShortcut___1Y88D bg-snow borderColor-snow--d borderRadius-s borderStyle-solid borderWidth-1 display-inlineBlock fontSize-xs hljs-string lineHeight-xxs marginLeft-xxs verticalAlign-top">H</div></a><a class="SidebarMenuItem__item___3QS10 c-marvel--hover c-black cusror-pointer display-block margin-s paddingLeftRight-xs"><span class="SidebarMenuItem__link___epEP4 fontSize-m">View all screens</span><div class="SidebarMenuItem__keyShortcut___1Y88D bg-snow borderColor-snow--d borderRadius-s borderStyle-solid borderWidth-1 display-inlineBlock fontSize-xs hljs-string lineHeight-xxs marginLeft-xxs verticalAlign-top">G</div></a><a class="SidebarMenuItem__item___3QS10 c-marvel--hover c-black cusror-pointer display-block margin-s paddingLeftRight-xs" href="https://userflows.marvelapp.com/39776de?utm_campaign=prototype-player&amp;utm_source=other&amp;utm_medium=web-app&amp;utm_term=player&amp;utm_content=userflows" target="_blank" rel="noopener noreferrer"><span class="SidebarMenuItem__link___epEP4 fontSize-m">View Userflows</span></a></div></div><div class="general__wrap___23Awi position-absolute overflow-hidden position__top-left___1LytG" style="width: 8px; height: 4px;"><div class="general__caret___3Jmm8 display-block position-absolute general__caret--top___1kHYi type__default___1apsP bg-white boxShadow-subtle size__small___7BAwd" style="width: 8px; height: 8px;"></div></div></div></div></div><div class="size__xs___1JOKe marginRight-xs"><div class="color__slate___1n2cC c-slate fill__smoke--xd___2mqKO fill-smoke--xd general__button___1ugJt cursor-pointer display-inlineBlock fontSize-s position-relative transitionDuration-l transitionProperty-all transitionTimingFunction-cb--scaleOut hover__background___1Vfco position__solo___iTu-P borderRadius-s" style="height: 34px; line-height: 34px; padding-left: 34px; padding-right: 10px;"><div class=""><div class="general__iconWrap___1ynVs pinTL position-absolute" style="width: 34px; height: 34px;"><div class="general__icon___jL08a pinCenter position-absolute"><svg width="22" height="16" viewBox="0 0 22 16"><path d="M16.5 13.5c-.4 0-.7-.1-1-.4-.5-.5-.5-1.4 0-1.9l3.2-3.2-3.2-3.2c-.5-.5-.5-1.4 0-1.9s1.4-.5 1.9 0l4.2 4.1c.5.5.5 1.4 0 1.9l-4.1 4.1c-.3.4-.6.5-1 .5zm-11 0c.4 0 .7-.1 1-.4.5-.5.5-1.4 0-1.9l-3.2-3.2 3.2-3.2c.5-.5.5-1.4 0-1.9s-1.4-.5-1.9 0l-4.2 4.1c-.5.5-.5 1.4 0 1.9l4.1 4.1c.3.4.6.5 1 .5zm4.1 1.4c.6 0 1.2-.4 1.3-1l2.7-11c.2-.7-.3-1.5-1-1.7-.6-.2-1.4.2-1.6 1l-2.7 11c-.2.7.3 1.5 1 1.7h.3z"></path></svg></div></div>Handoff</div></div></div><div class="size__xs___1JOKe marginRight-xs"><div class="color__slate___1n2cC c-slate fill__smoke--xd___2mqKO fill-smoke--xd general__button___1ugJt cursor-pointer display-inlineBlock fontSize-s position-relative transitionDuration-l transitionProperty-all transitionTimingFunction-cb--scaleOut hover__background___1Vfco position__solo___iTu-P borderRadius-s" style="height: 34px; line-height: 34px; padding-left: 34px; padding-right: 10px;"><div class=""><div class="general__iconWrap___1ynVs pinTL position-absolute" style="width: 34px; height: 34px;"><div class="general__icon___jL08a pinCenter position-absolute"><svg width="17" height="16" viewBox="0 0 17 16"><path d="M17 7.241c0-4.051-3.804-7.241-8.5-7.241s-8.5 3.19-8.5 7.241c0 4.052 3.804 7.241 8.5 7.241.729 0 1.457-.087 2.186-.259h.404c2.429 2.241 4.453 1.724 4.776 1.724.324 0 .567-.431.324-.517-2.186-.689-1.781-2.931-1.7-3.103 1.539-1.292 2.51-3.103 2.51-5.086z"></path></svg></div></div><div class="comments-count">No comments</div><div class="general__popover___3gD5F concealed position-absolute zi-chrome position__top-center___1mN-2 position__top-center--isActive___3QNeW disclosed general__hasAnimation___BRh6O transitionDuration-l transitionTimingFunction-cv-easeInOutBack" style="margin-bottom: 10px;"><div class="position__overlay-top___3XAxC position-absolute" style="bottom: -10px; height: 10px;"></div><div class="type__default___1U7Tw bg-white boxShadow-subtle size__small___1Pb-d borderRadius-s general__inner___2-3W9" style="width: 133px;"><div class="LeaveComment__popoverInner___1Un2A padding-xs textAlign-center lineHeight-s c-silver">Leave a comment on this design!</div><div class="Close__close___V_vBz borderRadius-circle cursor-pointer link position-absolute transitionDuration-l transitionTimingFunction-cv-easeInOutBack Close__close--light___1RMFx bg-marvel--hover bg-smoke fill-silver fill-white--hover"><div class="Close__icon___35RL- position-absolute pinCenter"><svg class="display-block" width="6" height="6" viewBox="0 0 6 6"><path d="M5.72,1.64A1,1,0,0,0,4.36.28L3,1.64,1.64,0.28A1,1,0,0,0,.28, 1.64L1.64,3,0.28,4.36A1,1,0,0,0,1.64,5.72L3,4.36,4.36, 5.72A1,1,0,0,0,5.72,4.36L4.36,3Z"></path></svg></div></div></div><div class="general__wrap___23Awi position-absolute overflow-hidden position__top-center___2Z8Ln" style="width: 8px; height: 4px;"><div class="general__caret___3Jmm8 display-block position-absolute general__caret--top___1kHYi type__default___1apsP bg-white boxShadow-subtle size__small___7BAwd" style="width: 8px; height: 8px;"></div></div></div></div></div></div><div class=""><div></div></div></div></div></div><div><div class="SidebarNavigation__wrapper___2LSXh position-fixed overflow-hidden verticallyCenter-absolute SidebarNavigation__wrapperLeft___2khzV"><div class="SidebarNavigation__previousButton___258Lz SidebarNavigation__navButton___k3ckH cursor-pointer transitionProperty-all transitionDuration-l transitionTimingFunction-cb--scaleOut position-absolute display-inlineBlock previous-button"><svg width="50" height="180" viewBox="0 0 50 180"><path fill="#000000" d="M0 10v160c30.555-14.954 49.948-45.982 50-80-.052-34.018-19.445-65.046-50-80zm25.38 93.386c-.833.819-2.167.819-3 0l-11.75-11.844c-.839-.856-.839-2.227 0-3.084l11.7-11.844c.833-.819 2.167-.819 3 0 .839.856.839 2.227 0 3.084l-10.13 10.302 10.17 10.302c.847.851.851 2.227.01 3.084z"></path><path fill="#fff" d="M22.33 76.614c.833-.819 2.167-.819 3 0 .839.856.839 2.227 0 3.084l-10.13 10.302 10.17 10.302c.847.852.851 2.227.01 3.084-.833.819-2.167.819-3 0l-11.75-11.844c-.839-.856-.839-2.227 0-3.084l11.7-11.844"></path></svg></div></div><div class="SidebarNavigation__wrapper___2LSXh position-fixed overflow-hidden verticallyCenter-absolute SidebarNavigation__wrapperRight___1T8Y7"><div class="SidebarNavigation__nextButton___2ZjgQ SidebarNavigation__navButton___k3ckH cursor-pointer transitionProperty-all transitionDuration-l transitionTimingFunction-cb--scaleOut position-absolute display-inlineBlock next-button"><svg width="50" height="180" viewBox="0 0 50 180"><path fill="#000000" d="M0 90c.052 34.018 19.445 65.046 50 80v-160c-30.555 14.954-49.948 45.982-50 80zm24.63 10.302l10.17-10.302-10.13-10.302c-.839-.856-.839-2.227 0-3.084.833-.819 2.167-.819 3 0l11.7 11.844c.839.856.839 2.227 0 3.084l-11.75 11.844c-.833.819-2.167.819-3 0-.841-.857-.837-2.233.01-3.084z"></path><path fill="#fff" d="M27.67 76.614l11.7 11.844c.839.856.839 2.227 0 3.084l-11.75 11.844c-.833.819-2.167.819-3 0-.841-.857-.837-2.232.01-3.084l10.17-10.302-10.13-10.302c-.839-.856-.839-2.227 0-3.084.833-.819 2.167-.819 3 0"></path></svg></div></div></div></div><div class="height-100" id="marvel-prototype-resize-root" style="position: relative;"><div><div class="Player__player___1Cqud" style="background-color: rgb(255, 255, 255);"><div style="background-color: rgb(255, 255, 255); height: 0px;"></div><div><div class="Screen__screenWrap___E6WBR Screen__fade___3w5QI"><div class="HoverOutLayer__screenArea___3oZ-2 height-100 position-absolute width-100"><div class="ScrollableArea__scrollable___3cX58 ps-container ps-theme-default ps-active-y" data-ps-id="46f33e3a-09f6-396d-cc0e-966b49380701" style="width: 1299px; height: 588px; padding-top: 0px;"><div style="margin-left: 0px; width: 1299px;"><div class="ScreenImage__imgWrapper___lROGZ"><div class="overflow-hidden" style="height: 717px; margin-top: 0px; margin-bottom: 0px;"><img alt="" src="./Prova Front-End_files/f3553a01954e465a8f374dfd93014fb2.png" class="ScreenImage__img___1DNfD" style="width: 1299px; height: 717px;"></div><div class="ScreenImage__hotspotLayerWrapper___1AI3H"><div class="HotspotLayer__hotspotLayer___3l6ct width-100 position-relative" style="height: 716.382px;"><div class="Hotspot__hotspot___1uv7p" style="left: 202px; top: 100px; width: 873px; height: 80px;"></div><div class="Hotspot__hotspot___1uv7p" style="left: 1181px; top: 123px; width: 42px; height: 39px;"></div><div class="Hotspot__hotspot___1uv7p" style="left: 2px; top: 123px; width: 144px; height: 48px;"></div><div class="Hotspot__hotspot___1uv7p" style="left: 1px; top: 166px; width: 145px; height: 51px;"></div><div></div></div></div></div></div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 588px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 482px;"></div></div></div></div></div></div></div></div><aside class="Banner__wrapper___2cLk8 marginBottom-xs marginRight-xs pinBR position-fixed zi-100"><div class="Banner__upsell___20Muo bg-blue--d--hover bg-blue borderRadius-s paddingLeftRight-xs paddingTopBottom-xxs position-relative transitionDuration-l transitionTimingFunction-cv-easeInOutBack"><div class="Banner__click___1vmth cursor-pointer userSelect-none"><div class="Banner__logo___1EnDG display-inlineBlock fill-white marginRight-xxs verticalAlign-middle"><svg width="35" height="15" class="display-block" viewBox="0 0 60 26"><path d="M50.925 16.73c-21.825-1.728-39.899 3.607-43.949 5.561-2.25 1.052-2.4 2.33-2.1 3.081.225.601 1.35.902 2.55.301 8.7-4.659 26.249-8.341 43.499-7.289.825-.075 1.2-1.503 0-1.653zm5.4-6.538c-.975 1.052-2.25 1.804-2.7 1.428-.45-.376 0-1.578 0-1.578 2.175-1.353 6.375-4.96 6.375-7.665 0-2.555-2.25-3.306-4.65-.977-1.65 1.578-3.225 4.509-4.05 7.44-1.2 1.202-3.15 2.78-4.95 2.78-.975 0-1.2-.676-1.05-1.503 1.5-.075 5.625-1.202 5.625-4.734-.075-1.503-1.2-2.029-2.325-2.029-1.875 0-4.275 1.954-5.475 4.659-.3-.075-.675-.15-.975-.376.375-.827.675-1.578.675-2.029.225-1.428-.375-2.33-1.5-2.254-.75.075-1.65.676-1.8 2.254-.15 1.052.375 2.254.375 2.254-.375 1.578-2.4 3.607-3.15 3.532-.675 0 .15-2.931.825-5.035.375-.451.75-.977.975-1.428.15-.676-.075-.977-.375-1.202-.45-.376-1.95-.225-2.775 1.202-.225.376-.45.977-.75 1.653-.6.676-1.5 1.653-1.8 1.503-.375-.225.9-2.029.675-3.006-.15-.902-.9-1.353-1.65-1.278-1.125.15-2.625 2.48-2.625 2.48s.3-.676.3-1.278c-.075-.827-1.65-1.202-2.4.376-.3.601-.75 2.63-1.2 4.584-.375.676-1.65 2.78-2.625 2.856-.825.075.15-3.682.3-3.908.45-.676 1.05-2.179.975-2.856-.075-.902-.675-1.052-1.2-.977-.825.15-1.2.977-1.2.977s-.45-.676-1.575-.601c-3.45.376-5.7 6.388-5.4 9.243.15 1.503.975 2.48 2.25 2.33 1.5-.15 2.775-2.405 2.775-2.405s.375 1.804 1.95 1.578c1.05-.15 2.175-1.127 3.075-2.104-.075.15-.075.376-.075.376-.225 1.503 2.325 1.353 2.475.15.75-5.786 2.625-8.191 3.225-8.191.45 0-1.2 2.705-.225 3.757.75.902 2.025.15 3.15-.751-.15.751-.3 1.503-.3 2.254-.075 1.653.525 2.931 2.1 2.856 2.1-.075 4.275-2.63 5.775-5.11.375.225.75.376 1.2.526-.15.601-.15 1.202-.15 1.804.15 1.879 1.425 2.63 2.925 2.555 1.8-.075 3.825-1.428 5.325-2.63 0 .075 0 .15-.075.15-.15.902.075 2.63 1.35 2.63 1.5.15 4.125-1.428 5.4-3.081.825-1.052-.225-2.104-1.05-1.202zm1.425-7.815c.15 0 .225.15.225.376 0 1.578-4.05 5.035-4.05 5.035s2.7-5.411 3.825-5.411zm-9.75 3.382c.375 0 .45.15.45.526 0 .902-1.2 1.578-2.625 1.653.75-1.127 1.575-2.179 2.175-2.179zm-27.074 2.555c-.15.977-1.8 5.335-2.775 5.335-1.2.075.6-6.162 2.475-6.162.45.075.45.301.3.827zm-14.7 1.202c1.125 0-.9 5.786-.675 8.341.225 2.555 3.075 1.804 2.85.376-.3-2.48 1.35-10.295 3.075-10.295 1.2 0-1.35 5.335-.825 8.792.375 2.254 3.375 1.503 3 .15-.975-4.434 2.175-8.717 1.8-11.798-.15-1.278-.975-2.029-1.8-2.029-2.85 0-5.025 5.711-5.025 5.711s.225-3.231-2.025-3.382c-3.3-.225-6.675 8.041-6.6 15.555.075 2.405 3.075 2.029 2.85.075-.225-3.532 1.725-11.498 3.375-11.498z"></path></svg></div><div class="Banner__copy___1O-6n c-white cursor-pointer display-inlineBlock fontSize-s lineHeight-m verticalAlign-middle">Create your own</div></div></div><div class="general__popover___3gD5F concealed position-absolute zi-chrome position__top-right___2Sdxa general__hasAnimation___BRh6O transitionDuration-l transitionTimingFunction-cv-easeInOutBack" style="margin-bottom: 10px;"><div class="position__overlay-top___3XAxC position-absolute" style="bottom: -10px; height: 10px;"></div><div class="type__default___1U7Tw bg-white boxShadow-subtle size__small___1Pb-d borderRadius-s general__inner___2-3W9" style="width: 100%;"><div class="Banner__popoverPadding___TScx- paddingBottom-s paddingLeftRight-s paddingTop-xs"><div class="Banner__popoverCopy___8r3R- c-silver fontSize-s fontWeight-3 lineHeight-m textAlign-center"><div class="paddingLeftRight-s">Design, prototype and collaborate for free.</div></div><div class="Banner__buttonWrap___3iH5h marginTop-xs textAlign-center"><a href="https://marvelapp.com/?signup" class="Banner__button___2vB2- bg-green button--flat button--s button">Sign up now</a></div></div><div class="Banner__arrow___24jZw cursor-pointer fill-silver--hover fill-smoke--d paddingLeftRight-xs paddingTopBottom-s pinTR position-absolute transitionDuration-l"><svg class="display-block" width="11" height="6" viewBox="0 0 11 6"><path d="M5.028 3.55l3.255-3.255c.391-.391 1.021-.395 1.412-.004l.069.069c.389.389.391 1.017-.004 1.412l-3.834 3.834c-.245.245-.583.338-.897.278-.315.06-.653-.033-.897-.278l-3.834-3.834c-.395-.395-.393-1.023-.004-1.412l.069-.069c.391-.391 1.021-.387 1.412.004l3.255 3.255z"></path></svg></div></div><div class="general__wrap___23Awi position-absolute overflow-hidden position__top-right___TPqR6" style="width: 8px; height: 4px;"><div class="general__caret___3Jmm8 display-block position-absolute general__caret--top___1kHYi type__default___1apsP bg-white boxShadow-subtle size__small___7BAwd" style="width: 8px; height: 8px;"></div></div></div></aside><div class="resize-triggers"><div class="expand-trigger"><div style="width: 1300px; height: 589px;"></div></div><div class="contract-trigger"></div></div></div><div class="SidebarHandoff__handoffSidebar___3Ojdd position-fixed pinTR overflowY-scroll bg-white borderWidth-0 borderLeftWidth-1 borderStyle-solid borderColor-snow--xd fontSize-s" style="width: 301px;"><div class="SidebarHandoff__iconClose___2Ev5k modal-icon modal-icon--s modal-icon--light modal-iconClose--outside modal-iconClose zi-100"></div></div></div></div></div><div><div class="comment-details"><div class="c-slate fontSize-m truncateText lineHeight-m screen-name">Artboard 01.png</div></div><div id="annotations-sidebar"><div class="annotations-inner"><div id="no-comments" class="js-empty-state position-absolute pinFill display-table">
+	<div class="display-tableCell textAlign-center verticalAlign-middle paddingLeftRight-m position-relative" style="top: -32px; padding-top: 0;">
+		<div class="fontSize-m lineHeight-m marginBottom-xxs"><span class="js-no-comments-title">No comments yet</span> <span class="js-no-comments-emoji marginRight-xxs"><span class="emoji-outer emoji-sizer"><span class="emoji-inner" style="background: url(/static/assets/images/sheet_apple_64.png);background-position:67.5% 45%;background-size:4100%"></span></span></span></div>
+		<div class="fontSize-s lineHeight-s fontWeight-3 c-silver js-no-comments-text">You can <span class="fontWeight-4">@mention</span> someone to start a conversation!</div>
+	</div>
+</div>
+
+<div id="enable-comments" class="js-empty-state position-absolute pinFill display-table state-hidden">
+	<div class="display-tableCell textAlign-center verticalAlign-middle position-relative paddingLeftRight-l" style="top: -32px; padding-top: 0;">
+		<div class="fontSize-m lineHeight-m marginBottom-xxs">Start commenting on this project <span class="emoji-outer emoji-sizer"><span class="emoji-inner" style="background: url(/static/assets/images/sheet_apple_64.png);background-position:47.5% 7.5%;background-size:4100%"></span></span></div>
+		<div class="fontSize-s lineHeight-s fontWeight-3 c-silver">Enable comments on this project to add feedback and annotations on screens</div>
+		<div class="button button--m button--flat marginTop-s bg-blue enable-comments">Enable comments</div>
+	</div>
+</div>
+
+<div id="upgrade-pro" class="js-empty-state position-absolute pinFill display-table state-hidden">
+	<div class="display-tableCell textAlign-center verticalAlign-middle position-relative paddingLeftRight-l" style="top: -32px; padding-top: 0;">
+		<div class="fontSize-m lineHeight-m marginBottom-xxs">Upgrade your plan to start commenting <span class="emoji-outer emoji-sizer"><span class="emoji-inner" style="background: url(/static/assets/images/sheet_apple_64.png);background-position:32.5% 80%;background-size:4100%"></span></span></div>
+		<div class="fontSize-s lineHeight-s fontWeight-3 c-silver centered" style="max-width: 240px;">Get commenting on unlimited projects on all of our paid plans</div>
+		<a class="button button--m button--flat marginTop-s bg-blue href-pro-account" href="https://marvelapp.com/upgrade/">Upgrade to Pro</a>
+	</div>
+</div>
+
+<div class="comments-list bg-snow" style="height: calc(100% - 110px);"></div>
+<div class="js-wait-loader is-loading is-loading--xl display-none"></div>
+<div class="js-emoji-overlay position-absolute pinAll bg-snow opacity-0 pointerEvents-none cursor-pointer transitionProperty-opacity transitionDuration-m transitionTimingFunction-cv-easeOutCircular" style="top: 1px; z-index: 1;"></div>
+
+<div class="comment-area bg-snow padding-s" style="min-height: 110px">
+	
+		<div class="position-absolute pinAll display-flex justifyContent-center alignItems-center">
+			<div>
+				<h5 class="fontSize-s marginBottom-s">To leave a comment on this prototype</h5>
+				<div class="display-flex alignItems-center justifyContent-center">
+					<a href="https://marvelapp.com/signin?next=/39776de/screen/39161014/comments&amp;out=true&amp;commenter=true" class="button button--ghost button--s bg-green--hover js-sign-in-redirect">Sign in</a><span class="marginLeftRight-s">or</span><a href="https://marvelapp.com/signup?next=/39776de/screen/39161014/comments&amp;out=true&amp;commenter=true" class="button button--flat button--s bg-green js-sign-up-redirect">Sign up</a>
+				</div>
+			</div>
+		</div>
+	
+</div>
+
+<div class="close modal-icon modal-icon--light modal-iconClose modal-icon--s"></div>
+
+<div class="position-absolute" style="top: -38px; right: 70px;">
+	<div class="popover popover--default popover--m popover--bottom has-animation has-caret textAlign-left js-comment-feed-popover" style="width:200px;">
+		<div class="popover-select-item paddingLeftRight-m paddingTopBottom-s has-border is-active" data-type="all">
+			<div class="display-flex alignItems-center">
+				<div class="verticalAlign-middle marginRight-m">
+					<div class="select-toggle"></div>
+				</div>
+				<div class="verticalAlign-middle">
+					<span class="popover-select-title fontWeight-5">All (<span class="js-all-comment-count">0</span>)</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popover-select-item paddingLeftRight-m paddingTopBottom-s" data-type="resolved">
+			<div class="display-flex alignItems-center">
+				<div class="verticalAlign-middle marginRight-m">
+					<div class="select-toggle"></div>
+				</div>
+				<div class="verticalAlign-middle alignItems-center display-flex">
+					<span class="popover-select-title fontWeight-5">Resolved (<span class="js-resolved-comment-count">0</span>)</span>
+					<div class="popover-trigger position-relative marginLeft-xs">
+						<div class="popover popover--dark popover--s popover--right has-animation has-caret whiteSpace-nowrap" style="width: auto">
+							<div class="fontSize-xs textAlign-center c-white padding-xs">Comments that have been marked as resolved</div>
+						</div>
+						<svg class="fill-smoke--d fill-smoke--xd--hover" width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c4.417 0 8 3.583 8 8s-3.583 8-8 8-8-3.583-8-8 3.583-8 8-8zm-.5 10.133h1.083c.3 0 .533-.267.533-.567.1-.45.467-.817.8-1.1.733-.667 1.25-1.183 1.467-1.583.233-.383.383-.8.383-1.25 0-.783-.35-1.55-.983-2.15-.617-.583-1.45-.867-2.5-.867-1.9 0-3.067 1.35-3.433 2.517l-.033.1-.017.133c0 .3.233.5.533.5h1.117c.25 0 .467-.15.517-.4.133-.5.7-1.067 1.4-1.067.433 0 .783.15 1.033.383.25.25.367.45.367.783 0 .25-.05.483-.217.683-.783.983-2.55 1.7-2.6 3.35 0 .3.25.533.55.533zm.5 3.883c.65 0 1.217-.567 1.217-1.217 0-.65-.567-1.217-1.217-1.217-.65 0-1.217.567-1.217 1.217 0 .65.567 1.217 1.217 1.217z"></path></svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="js-comment-feed-toggle cursor-pointer c-silver c-slate--hover display-flex">
+		<span class="js-comment-feed-label">All</span>
+		<svg class="fill-smoke--xd marginLeft-xxs" width="6" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h5l-3 3-3-3z" fill-rule="evenodd"></path></svg>
+	</div>
+</div>
+
+</div></div></div></div></div>
+  
+    <script type="text/javascript" src="./Prova Front-End_files/common-bundle.93d3cdafdb392537eb57.js"></script>
+  
+  <script type="text/javascript" src="./Prova Front-End_files/prototype-bundle.f84c770b9df758e6540d.js"></script><div style="display: none;"><img src="./Prova Front-End_files/f3553a01954e465a8f374dfd93014fb2.png"><img src="./Prova Front-End_files/22c3b4af3b9844ecb7a5bb4ffc1a2fc4.png"><img src="./Prova Front-End_files/934e331ddf3341009836e41b64cca808.png"><img src="./Prova Front-End_files/76525b1ff13b467d9457b6807d6cbba8.png"><img src="./Prova Front-End_files/75c91479168742e98763cace4f53f7d3.png"><img src="./Prova Front-End_files/b8d803a4d1584e61bb9f7f737e139702.png"><img src="./Prova Front-End_files/647dfb2ed4e04d1dbf084d2eb2db412d.png"><img src="./Prova Front-End_files/0317d01a5b904083b80a5d0e4cb14dee.png"><img src="./Prova Front-End_files/06c6ea47da624818baf3a63cfc80159f.png"><img src="./Prova Front-End_files/1ff323aa78b493e86fb93aead5f909b.png"><img src="./Prova Front-End_files/22c3b4af3b9844ecb7a5bb4ffc1a2fc4.png"><img src="./Prova Front-End_files/b8d803a4d1584e61bb9f7f737e139702.png"><img src="./Prova Front-End_files/647dfb2ed4e04d1dbf084d2eb2db412d.png"><img src="./Prova Front-End_files/0317d01a5b904083b80a5d0e4cb14dee.png"><img src="./Prova Front-End_files/06c6ea47da624818baf3a63cfc80159f.png"><img src="./Prova Front-End_files/1ff323aa78b493e86fb93aead5f909b.png"><img src="./Prova Front-End_files/76525b1ff13b467d9457b6807d6cbba8.png"><img src="./Prova Front-End_files/75c91479168742e98763cace4f53f7d3.png"><img src="./Prova Front-End_files/934e331ddf3341009836e41b64cca808.png"></div>
+
+
+<iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important;" aria-hidden="true" tabindex="-1" src="./Prova Front-End_files/saved_resource.html"></iframe><div id="intercom-css-container"><style data-emotion="intercom-global"></style></div><div id="intercom-container" class="intercom-namespace"><style>html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body,html.intercom-modal-open,#intercom-container-body{overflow:hidden !important;}html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body{position:static !important;}html.intercom-mobile-messenger-active > body{height:0 !important;margin:0 !important;}iframe#intercom-frame{position:absolute !important;opacity:0 !important;width:1px !important;height:1px !important;top:0 !important;left:0 !important;border:none !important;display:block !important;z-index:-1 !important;}</style></div></body></html>
