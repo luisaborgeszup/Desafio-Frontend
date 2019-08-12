@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Hello Word</h1>
+    <div id="app" ></div>
+    <div id="appDois" ></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script type="text/babel">
+        var h1 = React.createElement('h1', null, [
+            React.createElement("span", null, "Texto do span"), 
+            React.createElement("h3", null, "Texto h3")
+        ]);
+        ReactDOM.render(h1, document.getElementById("app"));
+        console.log(h1);
+
+        var h2 = React.DOM.h2(null, [
+            React.DOM.p(null, React.DOM.i(null, "Itálico")),
+            React.DOM.p(null, "Wtsupp")
+        ]);
+    </script>
+</body> 
+</html>
