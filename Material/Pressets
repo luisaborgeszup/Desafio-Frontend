@@ -1,0 +1,34 @@
+devDependencies:
+
+npm install --save-dev webpack@1 webpack-dev-server@1 babel-core@6 babel-loader@6 babel-preset-es2015@6 babel-preset-stage-0@6 babel-preset-react@6 react-hot-loader@3.0.0-beta.2 standard standard-loader@4 webpack-validator
+
+npm install --save-dev eslint
+
+eslint --init
+
+dependencies:
+
+npm install --save react@15.4 react-dom@15.4 mime mime-db prop-types @fdaciuk/ajax
+
+"scripts": {
+  "start": "node server.js"
+},
+
+"standard": {
+  "globals": [
+    "alert"
+  ]
+}
+
+./app.js
+
+'use strict'
+
+import React from 'react'
+
+const App = () => (
+  <div></div>
+)
+
+export default App
+
