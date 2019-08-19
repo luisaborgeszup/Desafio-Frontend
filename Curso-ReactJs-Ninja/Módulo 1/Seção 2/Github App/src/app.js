@@ -1,8 +1,9 @@
 'use strict'
 
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import ajax from '@fdaciuk/ajax'
 import AppContent from './components/app-content'
+import './app.module.css'
 
 class App extends Component {
   constructor () {
@@ -69,12 +70,14 @@ class App extends Component {
 
   render () {
     return (
-      <AppContent
-        {...this.state}
-        handleSearch={this.handleSearch}
-        getRepos={this.getRepos('repos')}
-        getStarred={this.getRepos('starred')}
-      />
+      <Fragment>
+        <AppContent 
+          {...this.state}
+          handleSearch={this.handleSearch}
+          getRepos={this.getRepos('repos')}
+          getStarred={this.getRepos('starred')}
+        />
+      </Fragment>
     )
   }
 }
