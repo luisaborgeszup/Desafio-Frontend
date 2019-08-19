@@ -1,0 +1,38 @@
+.head {
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  background-color: darkblue;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'garoa_hacker_clubebold';
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background-color: darkcyan;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+}
+
+.input {
+  height: 40px;
+  width: 200px;
+  border: 2px solid blue;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+@font-face {
+  font-family: 'garoa_hacker_clubebold';
+  src: url('../fonts/garoahackerclubebold-webfont-webfont.woff2') format('woff2'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.eot') format('embedded-opentype'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.woff') format('woff'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.ttf') format('truetype'),
+
+}
