@@ -1,6 +1,7 @@
 'use strict'
 
-import React, {PropTypes} from 'react'
+import React, {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import Search from './search'
 import UserInfo from './user-info'
 import Actions from './actions'
@@ -14,32 +15,35 @@ const AppContent = ({userinfo,
   getRepos,
   getStarred
 }) => (
-  <div className='app'>
-    <Search isDisabled={isFetching} handleSearch={handleSearch} />
-    {isFetching && <div>Carregando...</div>}
-    {!!userinfo && <UserInfo userinfo={userinfo} />}
-    {!!userinfo && <Actions
-      getRepos={getRepos}
-      getStarred={getStarred}
-    />}
+  <Fragment>
+    <div className='head'>Github Api</div>
+    <div className="background-color" className='app'>
+      <Search isDisabled={isFetching} handleSearch={handleSearch} />
+      {isFetching && <div>Carregando...</div>}
+      {!!userinfo && <UserInfo userinfo={userinfo} />}
+      {!!userinfo && <Actions
+        getRepos={getRepos}
+        getStarred={getStarred}
+      />}
 
-    {!!repos.length &&
-      <Repos
-        className='repos'
-        title='Repositórios'
-        repos={repos}
-      />
-    }
+      {!!repos.length &&
+        <Repos
+          className='repos'
+          title='Repositórios'
+          repos={repos}
+        />
+      }
 
-    {!!starred.length &&
-      <Repos
-        className='starred'
-        title='Favoritos'
-        repos={starred}
-      />
-    }
+      {!!starred.length &&
+        <Repos
+          className='starred'
+          title='Favoritos'
+          repos={starred}
+        />
+      }
 
-  </div>
+    </div>
+  </Fragment>
 )
 
 AppContent.propTypes = {
