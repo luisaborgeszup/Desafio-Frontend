@@ -1,0 +1,145 @@
+.head {
+  margin: 0;
+  width: 100%;
+  height: 80px;
+  background-color: darkblue;
+  
+  p {
+    padding: 7px;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'garoa_hacker_clubebold';
+    text-align: center;
+    position: relative;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: darkcyan;
+  text-align: center;
+}
+
+.image {
+  left: 5%;
+  top: 8%;
+  height: 200px;
+  width: 200px;
+  border: 2px solid blue;
+  box-sizing: border-box;
+  background-clip: border-box;
+  border-radius: 4px;
+  position: absolute;
+  
+}
+
+.search-box {
+  margin-top: 10%;
+  margin-left: 35%;
+  text-align: center;
+  height: 250px;
+  width: 400px;
+  border: 3px solid blue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: white;
+  background-clip: border-box;
+
+  p {
+    padding: 7px;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'garoa_hacker_clubebold';
+    text-align: center;
+  }
+
+  input {
+    text-align: center;
+    margin-top: 3%;
+    height: 40px;
+    width: 200px;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    box-align: center;
+    border-radius: 4px;
+  }
+}
+
+.search-box-two {
+  top: 25%;
+  left: 75%;
+  text-align: center;
+  height: 125px;
+  width: 200px;
+  border: 3px solid blue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: white;
+  background-clip: border-box;
+  position: absolute;
+  display: none;
+
+  p {
+    padding: 3.5px;
+    color: black;
+    font-weight: bold;
+    font-size: 12.5px;
+    font-family: 'garoa_hacker_clubebold';
+    text-align: center;
+  }
+
+  input {
+    text-align: center;
+    margin-top: 3%;
+    height: 40px;
+    width: 150px;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    box-align: center;
+    border-radius: 4px;
+  }
+}
+
+.interface {
+  margin-top: 2.5%;
+  margin-left: 5%;
+  text-align: center;
+  height: 75%;
+  width: 90%;
+  border: 3px solid blue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: white;
+  background-clip: border-box;
+  z-index: -1;
+  position: relative;
+  display: none;
+}
+
+.loader {
+  margin-top: 10%;
+  margin-left: 35%;
+  border: 16px solid lightgrey; /* Light grey */
+  border-top: 16px solid blue; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@font-face {
+  font-family: 'garoa_hacker_clubebold';
+  src: url('../fonts/garoahackerclubebold-webfont-webfont.woff2') format('woff2'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.eot') format('embedded-opentype'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.woff') format('woff'),
+  url('../fonts/garoahackerclubebold-webfont-webfont.ttf') format('truetype'),
+
+}
