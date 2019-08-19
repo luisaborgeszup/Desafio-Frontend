@@ -1,10 +1,12 @@
 'use strict'
 
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Search = ({isDisabled, handleSearch}) => (
   <div className='search'>
     <input
+      className='input'
       type='search'
       placeholder='Digite o nome do usuário'
       disabled={isDisabled}

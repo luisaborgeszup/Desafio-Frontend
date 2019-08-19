@@ -1,10 +1,11 @@
 'use strict'
 
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const UserInfo = ({userinfo}) => (
   <div className='user-info'>
-    <img src={userinfo.photo} />
+    <img  className="image" src={userinfo.photo}/>
     <h1>
       <a href={`https://github.com/${userinfo.login}`}>
         {userinfo.username}
