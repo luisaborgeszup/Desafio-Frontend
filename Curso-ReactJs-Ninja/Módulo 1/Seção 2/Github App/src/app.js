@@ -3,7 +3,7 @@
 import React, {Component, Fragment} from 'react'
 import ajax from '@fdaciuk/ajax'
 import AppContent from './components/app-content'
-import './app.module.css'
+import './app.module.scss'
 
 class App extends Component {
   constructor () {
@@ -31,7 +31,7 @@ class App extends Component {
 
     if (keyCode === ENTER) {
       this.setState({
-        isFetching: true
+        isFetching: true,
       })
       ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
         this.setState({
