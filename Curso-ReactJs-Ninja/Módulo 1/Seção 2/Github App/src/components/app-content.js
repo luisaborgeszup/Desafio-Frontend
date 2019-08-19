@@ -16,32 +16,37 @@ const AppContent = ({userinfo,
   getStarred
 }) => (
   <Fragment>
-    <div className='head'>Github Api</div>
+    <div className='head'>
+      <p className='title'>Github Api</p>
+    </div>
     <div className="background-color" className='app'>
       <Search isDisabled={isFetching} handleSearch={handleSearch} />
-      {isFetching && <div>Carregando...</div>}
-      {!!userinfo && <UserInfo userinfo={userinfo} />}
-      {!!userinfo && <Actions
-        getRepos={getRepos}
-        getStarred={getStarred}
-      />}
+      {isFetching && <div className='loader'></div> && (document.getElementById('searchField').style.display="none")}
+      {!!isFetching && (document.getElementById('searchFieldAfterResult').style.display="block")}
+      {!!isFetching && (document.getElementById('interface').style.display="block")}
+      <div className='interface' id='interface'>
+        {!!userinfo && <UserInfo userinfo={userinfo} />}
+        {!!userinfo && <Actions
+          getRepos={getRepos}
+          getStarred={getStarred}
+        />}
 
-      {!!repos.length &&
-        <Repos
-          className='repos'
-          title='Repositórios'
-          repos={repos}
-        />
-      }
+        {!!repos.length &&
+          <Repos
+            className='repos'
+            title='Repositórios'
+            repos={repos}
+          />
+        }
 
-      {!!starred.length &&
-        <Repos
-          className='starred'
-          title='Favoritos'
-          repos={starred}
-        />
-      }
-
+        {!!starred.length &&
+          <Repos
+            className='starred'
+            title='Favoritos'
+            repos={starred}
+          />
+        }
+      </div>
     </div>
   </Fragment>
 )
