@@ -11,45 +11,63 @@ const AppContent = ({userinfo,
   repos,
   starred,
   isFetching,
+  firstSearch,
   handleSearch,
   getRepos,
   getStarred
-}) => (
-  <Fragment>
-    <div className='head'>
-      <p className='title'>Github Api</p>
-    </div>
-    <div className="background-color" className='app'>
-      <Search isDisabled={isFetching} handleSearch={handleSearch} />
-      {isFetching && <div className='loader'></div> && (document.getElementById('searchField').style.display="none")}
-      {!!isFetching && (document.getElementById('searchFieldAfterResult').style.display="block")}
-      {!!isFetching && (document.getElementById('interface').style.display="block")}
-      <div className='interface' id='interface'>
-        {!!userinfo && <UserInfo userinfo={userinfo} />}
-        {!!userinfo && <Actions
-          getRepos={getRepos}
-          getStarred={getStarred}
-        />}
+}) => {
 
-        {!!repos.length &&
-          <Repos
-            className='repos'
-            title='Repositórios'
-            repos={repos}
-          />
-        }
+  const enableLoader = () => {
+    return (
+      <div className='loader'></div>
+    )
+  }
 
-        {!!starred.length &&
-          <Repos
-            className='starred'
-            title='Favoritos'
-            repos={starred}
-          />
+  const renderRepos = () => {
+    return (
+      <Repos
+        className='repos'
+        title='Repositórios'
+        repos={repos}
+      />
+    )
+  }
+
+  const renderStarred = () => {
+    return (
+      <Repos
+        className='starred'
+        title='Favoritos'
+        repos={starred}
+      />
+    )
+  }
+
+  return (
+    <Fragment>
+      <div className='head'>
+        <p className='title'>Github Api</p>
+      </div>
+      <div className="background-color" className='app'>
+        {!isFetching && <Search firstSearch={firstSearch} isDisabled={isFetching} handleSearch={handleSearch} />}
+        {isFetching && enableLoader()}
+        {userinfo &&
+          <div className='interface-background' id='interface'>
+            <UserInfo userinfo={userinfo} />
+            <Actions
+              getRepos={getRepos}
+              getStarred={getStarred}
+            />
+
+            {!!repos.length && renderRepos()}
+
+            {!!starred.length && renderStarred()}
+          </div>
         }
       </div>
-    </div>
-  </Fragment>
-)
+    </Fragment>
+  )
+}
 
 AppContent.propTypes = {
   userinfo: PropTypes.object,

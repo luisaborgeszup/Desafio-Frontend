@@ -12,7 +12,9 @@ class App extends Component {
       userinfo: null,
       repos: [],
       starred: [],
-      isFetching: false
+      isFetching: false,
+      firstSearch: true,
+      selectedRepos: true
     }
 
     this.handleSearch = this.handleSearch.bind(this)
@@ -31,7 +33,7 @@ class App extends Component {
 
     if (keyCode === ENTER) {
       this.setState({
-        isFetching: true,
+        isFetching: true
       })
       ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
         this.setState({
@@ -48,24 +50,33 @@ class App extends Component {
         })
       }).always(() => {
         this.setState({
-          isFetching: false
+          isFetching: false,
+          firstSearch: false
         })
       })
     }
   }
 
-  getRepos (type) {
-    return (e) => {
-      const username = this.state.userinfo.login
-      ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(username, type)).then((result) => {
-        this.setState({
-          [type]: result.map((repo) => ({
-            name: repo.name,
-            link: repo.html_url
-          }))
-        })
+  getInfo (type) {
+    const username = this.state.userinfo.login
+    ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(username, type)).then((result) => {
+      this.setState({
+        [type]: result.map((repo) => ({
+          name: repo.name,
+          link: repo.html_url
+        }))
       })
-    }
+    })
+  }
+
+  getRepos () {
+    const type = 'repos'
+    this.setState({selectedRepos: true, starred: []}, () => this.getInfo(type))
+  }
+
+  getStarred () {
+    const type = 'starred'
+    this.setState({selectedRepos: false, repos: []}, () => this.getInfo(type))
   }
 
   render () {
@@ -74,8 +85,8 @@ class App extends Component {
         <AppContent 
           {...this.state}
           handleSearch={this.handleSearch}
-          getRepos={this.getRepos('repos')}
-          getStarred={this.getRepos('starred')}
+          getRepos={() => this.getRepos()}
+          getStarred={() => this.getStarred()}
         />
       </Fragment>
     )
