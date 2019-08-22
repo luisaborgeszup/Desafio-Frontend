@@ -17,9 +17,19 @@ const AppContent = ({userinfo,
   getStarred
 }) => {
 
+  const enableFirstLoader = () => {
+    return (
+      <div className='loader-box'>
+        <div className='loader'></div>
+      </div>
+    )
+  }
+
   const enableLoader = () => {
     return (
-      <div className='loader'></div>
+      <div className='loader-box-two'>
+        <div className='loader-two'></div>
+      </div>
     )
   }
 
@@ -49,19 +59,28 @@ const AppContent = ({userinfo,
         <p className='title'>Github Api</p>
       </div>
       <div className="background-color" className='app'>
-        {!isFetching && <Search firstSearch={firstSearch} isDisabled={isFetching} handleSearch={handleSearch} />}
-        {isFetching && enableLoader()}
+        {!isFetching && firstSearch && <Search  isDisabled={isFetching} handleSearch={handleSearch} />}
+        {isFetching && firstSearch && enableFirstLoader()}
         {userinfo &&
-          <div className='interface-background' id='interface'>
-            <UserInfo userinfo={userinfo} />
-            <Actions
-              getRepos={getRepos}
-              getStarred={getStarred}
-            />
+          <div className='interface' id='interface'>
+            <div className='menu'>
+             <UserInfo userinfo={userinfo} />
 
-            {!!repos.length && renderRepos()}
+              <Actions
+                getRepos={getRepos}
+                getStarred={getStarred}
+              />
+            </div>              
+            
+            <div className='repositorys'>
+              {!!repos.length && renderRepos()}
 
-            {!!starred.length && renderStarred()}
+              {!!starred.length && renderStarred()}
+            </div>
+
+            {!isFetching && <Search firstSearch={firstSearch} isDisabled={isFetching} handleSearch={handleSearch} />}
+
+            {isFetching && enableLoader()}
           </div>
         }
       </div>

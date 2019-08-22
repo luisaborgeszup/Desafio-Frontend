@@ -4,15 +4,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Repos = ({className, title, repos}) => (
-  <div className={className}>
+  <div className='repositorys' className={className}>
     <h2>{title}</h2>
-    <ul>
+    <div>
       {repos.map((repo, index) => (
-        <li key={index}>
+        <p key={index}>
           <a href={repo.link}>{repo.name}</a>
-        </li>
+        </p>
       ))}
-    </ul>
+    </div>
   </div>
 )
 

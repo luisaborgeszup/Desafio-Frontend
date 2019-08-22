@@ -4,9 +4,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Actions = ({getRepos, getStarred}) => (
-  <div className='actions'>
-    <button onClick={getRepos}>Ver Repositórios</button>
-    <button onClick={getStarred}>Ver Favoritos</button>
+  <div className='buttons' className='actions'>
+    <span className='button-repo' onClick={getRepos}>Ver Repositórios</span>
+    <span className='button-fav' onClick={getStarred}>Ver Favoritos</span>
   </div>
 )
 
