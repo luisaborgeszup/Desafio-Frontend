@@ -59,7 +59,7 @@ class App extends Component {
 
   getInfo (type) {
     const username = this.state.userinfo.login
-    ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(username, type)).then((result) => {
+    ajax({'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f'}).get(this.getGithubApiUrl(username, type)).then((result) => {
       this.setState({
         [type]: result.map((repo) => ({
           name: repo.name,

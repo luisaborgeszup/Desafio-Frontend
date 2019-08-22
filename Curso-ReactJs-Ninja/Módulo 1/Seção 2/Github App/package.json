@@ -3,6 +3,7 @@
     "start": "node server.js",
     "build": "webpack --config webpack.config.js",
     "scss": "node-sass -watch scss -o css"
+
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
