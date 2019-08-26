@@ -1,0 +1,68 @@
+@charset 'utf-8';
+
+.search-box {
+  margin-top: 10%;
+  margin-left: 35%;
+  margin-right: 35%;
+  text-align: center;
+  height: 250px;
+  width: 400px;
+  border: 6px solid darkslateblue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: white;
+  background-clip: border-box;
+  position: absolute;
+
+  p {
+    padding: 7px;
+    color: darkslateblue;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'garoa_hacker_clubebold';
+    text-align: center;
+  }
+
+  input {
+    text-align: center;
+    margin-top: 3%;
+    height: 40px;
+    width: 200px;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    box-align: center;
+    border-radius: 4px;
+  }
+}
+
+.search-box-two {
+  text-align: center;
+  height: 125px;
+  width: 200px;
+  border: 4px solid darkslateblue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: white;
+  background-clip: border-box;
+  z-index: 1;
+
+  p {
+    padding: 3.5px;
+    color: darkslateblue;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'garoa_hacker_clubebold';
+    text-align: center;
+  }
+
+  input {
+    text-align: center;
+    margin-top: 1.5%;
+    height: 40px;
+    width: 150px;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    box-align: center;
+    border-radius: 4px;
+  }
+}

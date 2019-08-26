@@ -1,0 +1,48 @@
+@charset 'utf-8';
+
+.buttons {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.button-repo {
+  height: 30px;
+  padding: 10px 7px 7px 10px;
+  width: 50px;
+  color: darkslateblue; 
+  font-size: 15px;
+  font-family: 'garoa_hacker_clubebold';
+  border-radius: 10px;
+}
+
+.button-repo:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: darkcyan; 
+  color: white;
+  font-size: 15px;
+  font-family: 'garoa_hacker_clubebold';
+  cursor: pointer;
+}
+
+.button-fav {
+  height: 30px;
+  padding: 10px 7px 7px 10px;
+  width: 50px;
+  color: darkslateblue; 
+  font-size: 15px;
+  font-family: 'garoa_hacker_clubebold';
+  border-radius: 10px;
+}
+
+.button-fav:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: darkcyan; 
+  color: white;
+  font-size: 15px;
+  font-family: 'garoa_hacker_clubebold';
+  cursor: pointer;
+}

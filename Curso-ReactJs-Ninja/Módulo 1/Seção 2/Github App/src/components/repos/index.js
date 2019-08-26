@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import './repos.scss'
 
 const Repos = ({className, title, repos}) => (
   <div className='repositorys' className={className}>

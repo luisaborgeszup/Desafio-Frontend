@@ -6,6 +6,7 @@ import Search from './search'
 import UserInfo from './user-info'
 import Actions from './actions'
 import Repos from './repos'
+import './bg-config.scss'
 
 const AppContent = ({userinfo,
   repos,
@@ -58,7 +59,7 @@ const AppContent = ({userinfo,
       <div className='head'>
         <p className='title'>Github Api</p>
       </div>
-      <div className="background-color" className='app'>
+      <div className='app'>
         {!isFetching && firstSearch && <Search  isDisabled={isFetching} handleSearch={handleSearch} />}
         {isFetching && firstSearch && enableFirstLoader()}
         {userinfo &&

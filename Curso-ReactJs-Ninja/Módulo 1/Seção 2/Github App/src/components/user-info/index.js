@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import './user-info.scss'
 
 const UserInfo = ({userinfo}) => (
   <div className='user-info'>

@@ -1,0 +1,52 @@
+@charset 'utf-8';
+
+.userinfo-style {
+  justify-content: center;
+
+  img {
+    height: 200px;
+    width: 200px;
+    border: 4px solid darkslateblue;
+    box-sizing: border-box;
+    background-clip: border-box;
+    border-radius: 10px;
+  }
+
+  h1 {
+    color: darkslateblue;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'garoa_hacker_clubebold';
+
+    a:link {
+      text-decoration: none;
+    }
+  
+    a:link:hover {
+      color: deepskyblue;
+      text-decoration: underline;
+    }
+    
+    a:visited {
+      color: mediumpurple;
+    }
+  
+    a:visited:hover {
+      color: deepskyblue;
+      text-decoration: underline;
+    }
+  }
+}
+
+.repos-info {
+  text-align: left;
+  color: darkslateblue;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'garoa_hacker_clubebold';
+  margin-bottom: 3.5%;
+
+  p {
+    line-height: 1.0;
+  }
+}

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import './actions.scss'
 
 const Actions = ({getRepos, getStarred}) => (
   <div className='buttons' className='actions'>

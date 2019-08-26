@@ -1,0 +1,41 @@
+@charset 'utf-8';
+
+.repositorys {
+  height: 400px;
+  width: 250px;
+  border: transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+
+  h2 {
+    color: darkslateblue;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'garoa_hacker_clubebold';
+  }
+
+  p {
+    font-size: 15px;
+    font-family: 'garoa_hacker_clubebold';
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:link:hover {
+    color: deepskyblue;
+    text-decoration: underline;
+  }
+  
+  
+  a:visited {
+    color: mediumpurple;
+  }
+
+  a:visited:hover {
+    color: deepskyblue;
+    text-decoration: underline;
+  }
+}
