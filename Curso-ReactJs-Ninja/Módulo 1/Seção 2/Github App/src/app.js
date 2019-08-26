@@ -35,7 +35,7 @@ class App extends Component {
       this.setState({
         isFetching: true
       })
-      ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
+      const validGithub = ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
         this.setState({
           userinfo: {
             username: result.name,
@@ -48,11 +48,26 @@ class App extends Component {
           repos: [],
           starred: []
         })
-      }).always(() => {
+      })
+      .always(() => {
         this.setState({
           isFetching: false,
           firstSearch: false
         })
+      })
+      .catch(e => {
+        alert('User not found!')
+        if (this.state.userinfo) {
+          return this.setState({
+            isFetching: false,
+            firstSearch: false
+          })
+        }
+        return this.setState({
+          isFetching: false,
+          firstSearch: true
+        })
+        
       })
     }
   }
