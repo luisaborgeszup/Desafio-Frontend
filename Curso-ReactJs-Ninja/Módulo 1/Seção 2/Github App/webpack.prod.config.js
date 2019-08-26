@@ -4,33 +4,61 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
-const DashboardPlugin = require('webpack-dashboard/plugin')
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin")
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  devtool: 'source-map',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    path.join(__dirname, 'src', 'index')
-  ],
+  entry: path.join(__dirname, 'src', 'index'),
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name]-[hash].js',
-    publicPath: ''
+    filename: '[name]-[hash].js'
   },
-  mode: 'development',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.s?css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+    minimizer: [
+      new OptimizeCSSAssetsPlugin(),
+      new UglifyJsPlugin({
+        uglifyOptions: { warnings: false}
+      })
+    ],
+  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new DashboardPlugin(),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
       ignoreOrder: true
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+          'NODE_ENV': '"production"'
+      }
+    }),
     new HtmlPlugin({
       title: 'Github App',
       template: path.join(__dirname, 'src', 'html', 'template.html')
+    }),
+    new HtmlCriticalWebpackPlugin({
+      base: 'dist/',
+      src: '../src/html/template.html',
+      dest: 'dist/index.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
     })
   ],
   module: {
@@ -48,11 +76,15 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          process.env.NODE_ENV !== 'production'
-          ? 'style-loader'
-          : MiniCssExtractPlugin.loader,
-        'css-loader',
-        'sass-loader',
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: process.env.NODE_ENV === 'development',
+              },
+            },
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
         ],
       },
       {
