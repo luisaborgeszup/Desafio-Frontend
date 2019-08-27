@@ -4,7 +4,6 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
-const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
@@ -27,7 +26,14 @@ module.exports = {
       },
     },
     minimizer: [
-      new OptimizeCSSAssetsPlugin(),
+      new OptimizeCSSAssetsPlugin({
+        assetNameRegExp: /\.optimize\.(sa|sc|c)ss$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }],
+        },
+        canPrint: true,
+      }),
       new UglifyJsPlugin({
         uglifyOptions: { warnings: false}
       })
@@ -47,19 +53,6 @@ module.exports = {
       title: 'Github App',
       template: path.join(__dirname, 'src', 'html', 'template.html')
     }),
-    new HtmlCriticalWebpackPlugin({
-      base: 'dist/',
-      src: '../src/html/template.html',
-      dest: 'dist/index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      }
-    })
   ],
   module: {
     rules: [
