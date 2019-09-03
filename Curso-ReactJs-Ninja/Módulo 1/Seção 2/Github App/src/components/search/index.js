@@ -39,6 +39,7 @@ Search.defaultProps = {
 }
 
 Search.propTypes = {
+  firstSearch: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired
 }

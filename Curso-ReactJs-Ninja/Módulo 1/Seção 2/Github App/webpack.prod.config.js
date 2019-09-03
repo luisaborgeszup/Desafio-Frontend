@@ -4,7 +4,6 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
-const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
@@ -42,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
+      filename: devMode ? 'styles.css' : 'styles.[hash].css',
       ignoreOrder: true
     }),
     new webpack.DefinePlugin({
@@ -52,21 +51,7 @@ module.exports = {
     }),
     new HtmlPlugin({
       title: 'Github App',
-      inject: false,
       template: path.join(__dirname, 'src', 'html', 'template.html')
-    }),
-    new HtmlCriticalWebpackPlugin({
-      base: path.resolve(__dirname, 'dist'),
-      src: 'index.html',
-      dest: 'index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      }
     })
   ],
   module: {

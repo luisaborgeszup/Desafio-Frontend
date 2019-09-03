@@ -2,11 +2,10 @@
 
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import Search from './search'
-import UserInfo from './user-info'
-import Actions from './actions'
-import Repos from './repos'
-import './bg-config.scss'
+import Search from 'components/search'
+import UserInfo from 'components/user-info'
+import Actions from 'components/actions'
+import Repos from 'components/repos'
 
 const AppContent = ({userinfo,
   repos,
@@ -57,7 +56,7 @@ const AppContent = ({userinfo,
   return (
     <Fragment>
       <div className='head'>
-        <p className='title'>Github Api</p>
+        <p>Github Api</p>
       </div>
       <div className='app'>
         {!isFetching && firstSearch && <Search  isDisabled={isFetching} handleSearch={handleSearch} />}
@@ -73,7 +72,7 @@ const AppContent = ({userinfo,
               />
             </div>              
             
-            <div className='repositorys'>
+            <div className='repositories'>
               {!!repos.length && renderRepos()}
 
               {!!starred.length && renderStarred()}
