@@ -33,6 +33,15 @@
     box-align: center;
     border-radius: 4px;
   }
+
+  input:focus {
+    border:  2px solid darkslateblue;
+    box-shadow: 2px darkslateblue;
+    -moz-box-shadow: 2px darkslateblue;
+    -webkit-box-shadow: 2px darkslateblue;
+    outline-offset: 0px;
+    outline: none;
+  }
 }
 
 .search-box-two {

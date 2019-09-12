@@ -1,9 +1,9 @@
 'use strict'
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import UserInfo from './index';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import UserInfo from './index'
 
 storiesOf('User Info', module)
   .add('User Info Component', () => (
@@ -16,7 +16,7 @@ storiesOf('User Info', module)
         photo: 'https://avatars2.githubusercontent.com/u/50245051?v=4',
         repos: 5,
         followers: 0,
-        following: 1,
+        following: 1
       }}
     />
-))
+  ))

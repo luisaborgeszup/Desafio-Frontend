@@ -49,26 +49,25 @@ class App extends Component {
           starred: []
         })
       })
-      .always(() => {
-        this.setState({
-          isFetching: false,
-          firstSearch: false
-        })
-      })
-      .catch(e => {
-        alert('User not found!')
-        if (this.state.userinfo) {
-          return this.setState({
+        .always(() => {
+          this.setState({
             isFetching: false,
             firstSearch: false
           })
-        }
-        return this.setState({
-          isFetching: false,
-          firstSearch: true
         })
-        
-      })
+        .catch(e => {
+          alert('User not found!')
+          if (this.state.userinfo) {
+            return this.setState({
+              isFetching: false,
+              firstSearch: false
+            })
+          }
+          return this.setState({
+            isFetching: false,
+            firstSearch: true
+          })
+        })
     }
   }
 
@@ -97,7 +96,7 @@ class App extends Component {
   render () {
     return (
       <Fragment>
-        <AppContent 
+        <AppContent
           {...this.state}
           handleSearch={this.handleSearch}
           getRepos={() => this.getRepos()}

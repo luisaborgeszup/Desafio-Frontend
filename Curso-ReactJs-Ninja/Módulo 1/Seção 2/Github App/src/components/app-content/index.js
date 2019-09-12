@@ -16,11 +16,10 @@ const AppContent = ({userinfo,
   getRepos,
   getStarred
 }) => {
-
   const enableFirstLoader = () => {
     return (
       <div className='loader-box'>
-        <div className='loader'></div>
+        <div className='loader' />
       </div>
     )
   }
@@ -28,7 +27,7 @@ const AppContent = ({userinfo,
   const enableLoader = () => {
     return (
       <div className='loader-box-two'>
-        <div className='loader-two'></div>
+        <div className='loader-two' />
       </div>
     )
   }
@@ -59,19 +58,19 @@ const AppContent = ({userinfo,
         <p>Github Api</p>
       </div>
       <div className='app'>
-        {!isFetching && firstSearch && <Search  isDisabled={isFetching} handleSearch={handleSearch} />}
+        {!isFetching && firstSearch && <Search isDisabled={isFetching} handleSearch={handleSearch} />}
         {isFetching && firstSearch && enableFirstLoader()}
         {userinfo &&
           <div className='interface' id='interface'>
             <div className='menu'>
-             <UserInfo userinfo={userinfo} />
+              <UserInfo userinfo={userinfo} />
 
               <Actions
                 getRepos={getRepos}
                 getStarred={getStarred}
               />
-            </div>              
-            
+            </div>
+
             <div className='repositories'>
               {!!repos.length && renderRepos()}
 

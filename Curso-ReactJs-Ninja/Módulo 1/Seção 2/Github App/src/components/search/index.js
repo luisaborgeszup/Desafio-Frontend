@@ -13,6 +13,7 @@ const Search = ({isDisabled, handleSearch, firstSearch}) => (
             <p>Digite o nome do usuário</p>
             <input
               type='search'
+              className='input-focus'
               placeholder='...'
               disabled={isDisabled}
               onKeyUp={handleSearch}

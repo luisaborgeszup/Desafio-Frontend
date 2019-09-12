@@ -1,9 +1,9 @@
 'use strict'
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import Repos from './index';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import Repos from './index'
 
 storiesOf('Repos', module)
   .add('Repos Component', () => (

@@ -7,7 +7,7 @@ import './user-info.scss'
 const UserInfo = ({userinfo}) => (
   <div className='user-info'>
     <div className='userinfo-style'>
-      <img src={userinfo.photo}/>
+      <img src={userinfo.photo} />
       <h1>
         <a href={`https://github.com/${userinfo.login}`}>
           {userinfo.username}
