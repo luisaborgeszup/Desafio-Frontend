@@ -1,8 +1,6 @@
 'use strict'
 
 const path = require('path')
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -12,8 +10,8 @@ module.exports = {
     filename: '[name]-[hash].js'
   },
   htmlPluginConfig: {
-    filename: devMode ? 'styles.css' : 'styles.[hash].css',
-    ignoreOrder: true
+    title: 'Github App',
+    template: path.join(__dirname, '..', 'src', 'html', 'template.html')
   },
   jsLoader:  {
     test: /\.js$/,

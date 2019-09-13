@@ -1,19 +1,16 @@
 'use strict'
 
-const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const commonConfig = require('./webpack.common')
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: path.join(__dirname, '..', 'src', 'index'),
-  output: {
-    path: path.join(__dirname, '..', 'dist'),
-    filename: '[name]-[hash].js'
-  },
+  entry: commonConfig.entry,
+  output: commonConfig.output,
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -49,23 +46,11 @@ module.exports = {
         'NODE_ENV': '"production"'
       }
     }),
-    new HtmlPlugin({
-      title: 'Github App',
-      template: path.join(__dirname, '..', 'src', 'html', 'template.html')
-    })
+    new HtmlPlugin(commonConfig.htmlPluginConfig)
   ],
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        include: /src/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-react', '@babel/preset-env'],
-          plugins: ['react-hot-loader/babel']
-        }
-      },
+      commonConfig.jsLoader,
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
@@ -80,33 +65,9 @@ module.exports = {
           'sass-loader'
         ]
       },
-      {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: 'fonts/[name].[ext]'
-          }
-        }
-      },
-      {
-        test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 50000,
-            mimetype: 'application/font-woff',
-            name: './fonts/[name].[ext]',
-            publicPath: '../'
-          }
-        }
-      }
+      commonConfig.fontLoader,
+      commonConfig.fontAndImageLoader
     ]
   },
-  resolve: {
-    alias: {
-      src: path.join(__dirname, '..', 'src'),
-      components: path.join(__dirname, '..', 'src', 'components')
-    }
-  }
+  resolve: commonConfig.resolve
 }
