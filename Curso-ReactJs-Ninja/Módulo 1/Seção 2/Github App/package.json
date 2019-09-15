@@ -6,7 +6,7 @@
     "lint": "standard --verbose",
     "lint:fix": "standard --fix",
     "lint:watch": "gulp default",
-    "build": "cross-env NODE_ENV=production webpack --progress --config webpack.prod.config.js -p",
+    "build": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.prod.config.js -p",
     "scss": "node-sass -watch scss -o css",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -37,8 +37,8 @@
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.1.2",
     "react-hot-loader": "^4.12.11",
-    "sass": "^1.22.9",
-    "sass-loader": "^7.2.0",
+    "sass": "^1.22.12",
+    "sass-loader": "^8.0.0",
     "standard": "^11.0.1",
     "standard-loader": "^4.0.0",
     "style-loader": "^1.0.0",
@@ -59,7 +59,10 @@
   },
   "standard": {
     "globals": [
-      "alert", "test", "it", "describe"
+      "alert",
+      "test",
+      "it",
+      "describe"
     ]
   }
 }
