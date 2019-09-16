@@ -1,22 +1,23 @@
+
 'use strict'
 
 import React from 'react'
 
-const Dots = () => <span>...</span>
+const Dots = ({ className }) => <span className={className}>...</span>
 
 const Page = ({ page, pageLink, onClick }) => {
   const Component = page === '...' ? Dots : 'a'
-  const handleClick = !onClick
-    ? null
-    : (e) => {
-      e.preventDefault()
-      onClick(page)
-    } 
+
+  const handleClick = !onClick ? null : (e) => {
+    e.preventDefault()
+    onClick(page)
+  }
 
   return (
-    <Component href={pageLink} onClick={handleClick}>
+    <Component href={pageLink} onClick={handleClick} >
       {page}
-    </Component>)
+    </Component>
+  )
 }
 
 export default Page

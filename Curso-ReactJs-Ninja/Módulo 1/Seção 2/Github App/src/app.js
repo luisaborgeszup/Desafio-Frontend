@@ -17,13 +17,14 @@ class App extends Component {
       selectedRepos: true
     }
 
+    this.perPage = 7
     this.handleSearch = this.handleSearch.bind(this)
   }
 
   getGithubApiUrl (username, type) {
     const internalUser = username ? `/${username}` : ''
     const internalType = type ? `/${type}` : ''
-    return `https://api.github.com/users${internalUser}${internalType}`
+    return `https://api.github.com/users${internalUser}${internalType}?per_page=${this.perPage}`
   }
 
   handleSearch (e) {
@@ -35,7 +36,7 @@ class App extends Component {
       this.setState({
         isFetching: true
       })
-      const validGithub = ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
+      ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
         this.setState({
           userinfo: {
             username: result.name,
@@ -71,27 +72,33 @@ class App extends Component {
     }
   }
 
-  getInfo (type) {
+  getRepos (type, page = 1) {
+    console.log(`type and page`, type, page)
     const username = this.state.userinfo.login
-    ajax({'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f'}).get(this.getGithubApiUrl(username, type)).then((result) => {
+    ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(username, type)).then((result) => {
+      if (type === 'repos') {
+        this.setState({
+          selectedRepos: true,
+          starred: []
+        })
+      }
+
+      if (type === 'starred') {
+        this.setState({
+          selectedRepos: false,
+          repos: []
+        })
+      }
+
       this.setState({
-        [type]: result.map((repo) => ({
+        [type] : result.map((repo) => ({
           name: repo.name,
           link: repo.html_url
         }))
       })
     })
   }
-
-  getRepos () {
-    const type = 'repos'
-    this.setState({selectedRepos: true, starred: []}, () => this.getInfo(type))
-  }
-
-  getStarred () {
-    const type = 'starred'
-    this.setState({selectedRepos: false, repos: []}, () => this.getInfo(type))
-  }
+  
 
   render () {
     return (
@@ -99,8 +106,9 @@ class App extends Component {
         <AppContent
           {...this.state}
           handleSearch={this.handleSearch}
-          getRepos={() => this.getRepos()}
-          getStarred={() => this.getStarred()}
+          handlePagination={() => this.getRepos()}
+          getRepos={() => this.getRepos('repos')}
+          getStarred={() => this.getRepos('starred')}
         />
       </Fragment>
     )

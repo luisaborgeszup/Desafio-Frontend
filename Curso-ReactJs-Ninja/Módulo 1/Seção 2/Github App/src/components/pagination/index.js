@@ -4,15 +4,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import pagination from '../../utils/pagination/index'
 import Page from './page'
+import './pagination.scss'
 
 const Pagination = ({ total, activePage, pageLink, onClick }) => (
-  <ul>
+  <div className='pagination'>
     {pagination({ total, activePage }).map((page, index) => (
-      <li key={index} style={activePage === page ? {color: 'red'} : null} >
+      <p key={index} className={`pagination-item ${activePage === page ? 'active' : ''}`} >
         <Page page={page} pageLink={pageLink.replace('%page%', page)} onClick={onClick} />
-      </li>
+      </p>
     ))}
-  </ul>
+  </div>
 )
 
 Pagination.defaultProps = {

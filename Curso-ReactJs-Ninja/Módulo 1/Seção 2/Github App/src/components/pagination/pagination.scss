@@ -1,0 +1,41 @@
+@charset 'utf-8';
+
+.pagination {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+
+    p {
+        color: blue;
+        text-align: center;
+        font-size: 15px;
+        font-family: 'garoa_hacker_clubebold';
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:link:hover {
+        color: deepskyblue;
+        text-decoration: underline;
+    }
+  
+  
+    a:visited {
+        color: mediumpurple;
+    }
+
+    a:visited:hover {
+        color: deepskyblue;
+        text-decoration: underline;
+    }
+}
+
+.pagination-item.active {
+    P {
+        color: deepskyblue;
+        text-decoration: underline;
+    }
+}

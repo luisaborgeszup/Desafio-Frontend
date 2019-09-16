@@ -14,7 +14,8 @@ const AppContent = ({userinfo,
   firstSearch,
   handleSearch,
   getRepos,
-  getStarred
+  getStarred,
+  handlePagination
 }) => {
   const enableFirstLoader = () => {
     return (
@@ -38,6 +39,7 @@ const AppContent = ({userinfo,
         className='repos'
         title='Repositórios'
         repos={repos}
+        handlePagination={(clicked) => handlePagination('repos', clicked)}
       />
     )
   }
@@ -48,7 +50,8 @@ const AppContent = ({userinfo,
         className='starred'
         title='Favoritos'
         repos={starred}
-      />
+        handlePagination={(clicked) => handlePagination('starred', clicked)}
+        />
     )
   }
 
@@ -94,7 +97,8 @@ AppContent.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
-  getStarred: PropTypes.func.isRequired
+  getStarred: PropTypes.func.isRequired,
+  handlePagination: PropTypes.func.isRequired
 }
 
 export default AppContent
