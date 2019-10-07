@@ -9,30 +9,38 @@ const Repos = ({className, title, repos, handlePagination}) => (
   <div className='repositorys' className={className}>
     <h2>{title}</h2>
     <div>
-      {repos.map((repo, index) => (
+      {repos.repos.map((repo, index) => (
         <p key={index}>
           <a href={repo.link}>{repo.name}</a>
         </p>
       ))}
     </div>
     <Pagination
-      total={10}
-      activePage={3}
+      total={repos.pagination.total}
+      activePage={repos.pagination.activePage}
       onClick={handlePagination}
     />
   </div>
 )
 
 Repos.defaultProps = {
-  className: '',
-  repos: []
+  className: ''
 }
 
 Repos.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   handlePagination: PropTypes.func.isRequired,
-  repos: PropTypes.array
+  repos: PropTypes.shape({
+    repos: PropTypes.arrayOf(PropTypes.shape({
+      link: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })).isRequired,
+    pagination: PropTypes.shape({
+      total: PropTypes.number,
+      activePage: PropTypes.number
+    }).isRequired
+  })
 }
 
 export default Repos

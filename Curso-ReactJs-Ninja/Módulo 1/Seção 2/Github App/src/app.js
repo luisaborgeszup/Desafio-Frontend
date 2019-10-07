@@ -4,14 +4,23 @@ import React, {Component, Fragment} from 'react'
 import ajax from '@fdaciuk/ajax'
 import AppContent from './components/app-content'
 import './app.module.scss'
+import pagination from './utils/pagination/index'
+
+const initialReposState = {
+  repos: [],
+  pagination: {
+    total: 1,
+    activePage: 1
+  }
+}
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
       userinfo: null,
-      repos: [],
-      starred: [],
+      repos: initialReposState,
+      starred: initialReposState,
       isFetching: false,
       firstSearch: true,
       selectedRepos: true
@@ -19,12 +28,13 @@ class App extends Component {
 
     this.perPage = 7
     this.handleSearch = this.handleSearch.bind(this)
+    this.getRepos = this.getRepos.bind(this)
   }
 
-  getGithubApiUrl (username, type) {
+  getGithubApiUrl (username, type, page = 1) {
     const internalUser = username ? `/${username}` : ''
     const internalType = type ? `/${type}` : ''
-    return `https://api.github.com/users${internalUser}${internalType}?per_page=${this.perPage}`
+    return `https://api.github.com/users${internalUser}${internalType}?per_page=${this.perPage}&page=${page}`
   }
 
   handleSearch (e) {
@@ -36,7 +46,7 @@ class App extends Component {
       this.setState({
         isFetching: true
       })
-      ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(value)).then((result) => {
+      ajax({ 'Authorization': 'token 11c6b675c04a32b7ba455bf5e51d2c1ac811ec47' }).get(this.getGithubApiUrl(value)).then((result) => {
         this.setState({
           userinfo: {
             username: result.name,
@@ -46,8 +56,8 @@ class App extends Component {
             followers: result.followers,
             following: result.following
           },
-          repos: [],
-          starred: []
+          repos: initialReposState,
+          starred: initialReposState
         })
       })
         .always(() => {
@@ -72,29 +82,38 @@ class App extends Component {
     }
   }
 
-  getRepos (type, page = 1) {
-    console.log(`type and page`, type, page)
+  getRepos (type, page) {
     const username = this.state.userinfo.login
-    ajax({ 'Authorization': 'token 1ce81e1717178f69393cd44d444634e308c9156f' }).get(this.getGithubApiUrl(username, type)).then((result) => {
+    ajax({ 'Authorization': 'token 11c6b675c04a32b7ba455bf5e51d2c1ac811ec47' }).get(this.getGithubApiUrl(username, type, page)).then((result, xhr) => {
+      const linkHeader = xhr.getResponseHeader("Link") || ''
+      const totalPagesMatch = linkHeader.match(/&page=(\d+)>; rel="last/)
       if (type === 'repos') {
         this.setState({
           selectedRepos: true,
-          starred: []
+          starred: initialReposState
         })
       }
 
       if (type === 'starred') {
         this.setState({
           selectedRepos: false,
-          repos: []
+          repos: initialReposState
         })
       }
 
       this.setState({
-        [type] : result.map((repo) => ({
-          name: repo.name,
-          link: repo.html_url
-        }))
+        [type] : {
+          repos: result.map((repo) => ({
+            name: repo.name,
+            link: repo.html_url
+          })),
+          pagination: {
+            total: totalPagesMatch 
+              ? +totalPagesMatch[1]
+              : this.state[type].pagination.total,
+            activePage: page
+          }
+        }
       })
     })
   }
@@ -106,7 +125,7 @@ class App extends Component {
         <AppContent
           {...this.state}
           handleSearch={this.handleSearch}
-          handlePagination={() => this.getRepos()}
+          handlePagination={(type, page) => this.getRepos(type, page)}
           getRepos={() => this.getRepos('repos')}
           getStarred={() => this.getRepos('starred')}
         />

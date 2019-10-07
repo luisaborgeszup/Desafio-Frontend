@@ -75,9 +75,9 @@ const AppContent = ({userinfo,
             </div>
 
             <div className='repositories'>
-              {!!repos.length && renderRepos()}
+              {!!repos.repos.length && renderRepos()}
 
-              {!!starred.length && renderStarred()}
+              {!!starred.repos.length && renderStarred()}
             </div>
 
             {!isFetching && <Search firstSearch={firstSearch} isDisabled={isFetching} handleSearch={handleSearch} />}
@@ -90,15 +90,20 @@ const AppContent = ({userinfo,
   )
 }
 
+const reposPropTypes = {
+  repos: PropTypes.array.isRequired,
+  pagination: PropTypes.object
+}
+
 AppContent.propTypes = {
   userinfo: PropTypes.object,
-  repos: PropTypes.array.isRequired,
-  starred: PropTypes.array.isRequired,
+  repos: PropTypes.shape(reposPropTypes).isRequired,
+  starred: PropTypes.shape(reposPropTypes).isRequired,
   isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
+  handlePagination: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
-  getStarred: PropTypes.func.isRequired,
-  handlePagination: PropTypes.func.isRequired
+  getStarred: PropTypes.func.isRequired
 }
 
 export default AppContent
