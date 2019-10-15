@@ -1,0 +1,29 @@
+@charset 'utf-8';
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.users {
+    margin-top: -580px;
+    margin-left: 235px;
+    padding-top: 15px;
+    height: 60px;
+    width: 1020px;
+    background-color: #ffffff;
+    border: transparent;
+    border-radius: 4px;
+    justify-content: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 0px 8px 2px #e0e0e0;
+
+}
+
+#name {
+    color:  #2a3d50;
+    font-size: 20px;
+}
+
+#user-data {
+    color: #a2a2a2;
+    font-size: 17px;
+}
