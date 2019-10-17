@@ -9,16 +9,19 @@ class App extends Component {
     constructor () {
         super()
         this.state = {
-            prrofiles: {}
+            users: []
         }
-        // this.getUsers = this.getUsers.bind(this)
+        this.getUsers = this.getUsers.bind(this)
         this.handleSearch = this.handleSearch.bind(this)
+    }
+
+    componentDidMount(){
+        this.getUsers()
     }
 
     getMarvelApiUrl (UserName, menuClass) {
         const internalUser = UserName ? `/${UserName}` : ''
-        const internalMenuClass = menuClass ? `/${menuClass}` : ''
-        return `http://localhost:8000/users${internalMenuClass}${internalUser}`
+        return `http://localhost:8000/users${internalUser}`
     }
 
     async handleSearch (e) {
@@ -27,7 +30,7 @@ class App extends Component {
         const ENTER = 13
 
         if (keyCode === ENTER) {
-            // try {
+            try {
                 const {data} = await axios.get(this.getMarvelApiUrl(value)) 
                 console.log(data)
             //     this.setState ({
@@ -44,26 +47,22 @@ class App extends Component {
             //             }
             //         }
             //     })
-            // }
-            // catch(error) {
-            //     alert('User not found!')
-            // })
+            }
+            catch(error) {
+                alert('User not found!')
+            }
         }
     }
 
     async getUsers () {
         try {
             const {data} = await axios.get(this.getMarvelApiUrl()) 
-            
             this.setState ({
-                users: data.map((user) => ({
-                    link: data.link,
-                    name: data.name.first
-                })) 
+                users: data
             })
         }
         catch (error) {
-            alert('User not found!')
+            alert("Couldn't find the users!")
         }
     }
 

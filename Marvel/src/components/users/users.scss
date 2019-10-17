@@ -4,13 +4,11 @@
 .users {
     margin-top: -580px;
     margin-left: 235px;
-    padding-top: 15px;
     height: 60px;
     width: 1020px;
     background-color: #ffffff;
     border: transparent;
     border-radius: 4px;
-    justify-content: center;
     z-index: 1000;
     display: flex;
     justify-content: space-around;
@@ -18,12 +16,34 @@
 
 }
 
-#name {
+img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.name-and-picture {
     color:  #2a3d50;
     font-size: 20px;
+    height: 60px;
+    width: 150px;
+    border: transparent;
+    display: flex;
+    justify-content: space-around;
+}
+
+#picture {
+    padding-top: 10px;
 }
 
 #user-data {
+    padding-top: 15px;
     color: #a2a2a2;
     font-size: 17px;
+}
+
+#name {
+    padding-top: 15px;
+    color:  #2a3d50;
+    font-size: 20px;
 }

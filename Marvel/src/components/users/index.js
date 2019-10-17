@@ -1,22 +1,27 @@
 'use strict'
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import './users.scss'
 
-const Users = (users, getUsers) => (
-    <div className="users">
-            <div>
-                <span id="name">{users.name.first}</span>
-                <span id="user-data">{users.email}</span>
-                <span id="user-data">{users.phone}</span>
-                <span id="user-data">{users.location.city} - {user.location.state}</span>
-            </div>
+const Users = ({users}) => (
+    <div>
+        {users.length && users.map((user, index) => (
+            <p key={index} className="users">
+                <span className="name-and-picture">
+                    <span id="picture"><img src={user.picture.thumbnail}></img></span>
+                    <span id="name">{user.name.first}</span>
+                </span>
+                <span id="user-data">{user.email}</span>
+                <span id="user-data">{user.phone}</span>
+                <span id="user-data">{user.location.city} - {user.location.state}</span>
+            </p>
         ))}
     </div>
 )
 
-Repos.propTypes = {
-    users: PropTypes.shape({
+Users.propTypes = {
+    users: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.shape({
             first: PropTypes.string.isRequired,
             last: PropTypes.string.isRequired
@@ -26,8 +31,13 @@ Repos.propTypes = {
         location: PropTypes.shape({
             city: PropTypes.string.isRequired,
             state: PropTypes.string.isRequired
-        }).isRequired,
-    })
+        }),
+        picture: PropTypes.shape({
+            large: PropTypes.string.isRequired,
+            medium: PropTypes.string.isRequired,
+            thumbnail: PropTypes.string.isRequired
+        })
+    }))
 }
 
 export default Users
