@@ -17,11 +17,21 @@
   padding-left: 3px;
   z-index: 1000;
   display: inline-block;
+  align-items: center;
+
+  img {
+    margin-left: -10px;
+    position: absolute;
+    width: 55px;
+    height: 55px;
+  }
+
   input {
+    align-items: center;
     text-align: left;
     height: 37px;
     width: 62.2%;
-    padding-left: 2.5%; 
+    padding-left: 2.5%;
     border: transparent;
     box-sizing: border-box;
     box-align: center;
@@ -30,8 +40,8 @@
     color: #2a3d50;
     outline: none;
   }
-}
 
-::placeholder {
+  ::placeholder {
     color: #2a3d50;
+  }
 }

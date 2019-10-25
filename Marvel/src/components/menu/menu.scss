@@ -2,41 +2,86 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .box-shadow-top {
-    box-shadow: inset 0 6px 10px -6px C9C9C9;
-    z-index: 1;
+  box-shadow: inset 0 6px 10px -6px C9C9C9;
+  z-index: 1;
 }
 
 .menu {
-    margin-left: 0;
-    padding-top: 19px;
-    padding-left: 65px;
+  margin-left: 0;
+  padding-top: 19px;
+  padding-left: 25px;
+  color: #888888;
+  background-color: #FFFFFF;
+  text-align: left;
+  font-size: 20px;
+  width: 180px;
+  height: 89.7vh;
+  border: transparent;
+  box-shadow: 6px 0 10px -6px #C9C9C9;
+  
+  p {
     color: #888888;
-    background-color: #FFFFFF;
-    text-align: left;
-    font-size: 20px;
-    width: 180px;
-    height: 100vh;
-    border: transparent;
-    box-shadow: 6px 0 10px -6px #C9C9C9;
-    a {
-        color: #888888;
-        font-weight: lighter;
-        text-decoration: none;
-    }
-    a:link {
-        color: #888888;
-        font-weight: lighter;
-        text-decoration: none;
-    }
+    font-weight: lighter;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  p:hover {
+    cursor: pointer;
+  }
+  
+  p:focus {
+    color: #a4cb09;
+    outline: none;
 
-    a:hover {
-        color: #888888;
-        font-weight: lighter;
-        text-decoration: none;
+    #all-inside {
+      margin-top: 1px;
+      height: 9px;
+      width: 9px;
+      border: 2px solid #a4cb09;
+      display: flex;
     }
+  
+    #all-outside {
+      height: 15px;
+      width: 15px;
+      border: 2px dotted #a4cb09;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 
-    a:focus {
-        color: #a4cb09;
-        text-decoration: none;
-    }
+  #all-inside {
+    margin-top: 1px;
+    height: 9px;
+    width: 9px;
+    border: 2px solid #a2a2a2;
+    display: flex;
+  }
+
+  #all-outside {
+    height: 15px;
+    width: 15px;
+    border: 2px dotted #a2a2a2;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #check {
+    margin-left: -5px;
+    filter: invert(60%);
+    height: 21px;
+    width: 19px;
+  }
+  
+  #trashcan {
+    height: 16px;
+    width: 14px;
+    filter: invert(70%);
+  }
+   
+  #text {
+    margin-left: 25px;
+  }
 }

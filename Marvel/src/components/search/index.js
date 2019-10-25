@@ -6,8 +6,9 @@ import './search.scss'
 
 const Search = ({handleSearch}) => (
   <div className="search">
+    <img src="../../../icons/search.svg"></img>
     <input
-      type='search'
+      type='text'
       placeholder='Buscar'
       onKeyUp={handleSearch}
     />
