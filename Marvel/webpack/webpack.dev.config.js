@@ -35,7 +35,7 @@ module.exports = {
       commonConfig.jsLoader,
       commonConfig.cssAndSassLoader,
       commonConfig.fontLoader,
-      commonConfig.fontAndImageLoader
+      commonConfig.ImageLoader
     ]
   },
   resolve: commonConfig.resolve

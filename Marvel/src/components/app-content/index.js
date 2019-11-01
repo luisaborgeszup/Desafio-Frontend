@@ -7,6 +7,9 @@ import Users from 'components/users'
 import PropTypes from 'prop-types'
 
 const AppContent = ({
+  selectedTrash,
+  selectedChecked,
+  selectedAll,
   handleSearch,
   allButton,
   checkedButton,
@@ -20,21 +23,35 @@ const AppContent = ({
     <Fragment>
         <Search handleSearch={handleSearch} />
         <Menu
+          fillTrash={selectedTrash ? "#a4cb09" : "#a2a2a2"}
+          fillDoublechecked={selectedChecked ? "#a4cb09" : "#a2a2a2"}
           menuAllUsers = {menuAllUsers}
           menuCheckedUsers = {menuCheckedUsers}
           menuDiscardedUsers = {menuDiscardedUsers}
+          classAll = {selectedAll ? "enabled" : "disabled"}
+          classTrash = {selectedTrash ? "enabled" : "disabled"}
+          classChecked = {selectedChecked ? "enabled" : "disabled"}
         />
         <Users 
           users={activeList}
           allButton = {allButton}
           trashButton = {trashButton}
           checkedButton = {checkedButton}
+          displayAll = {selectedAll ? "none" : "flex"}
+          displayChecked = {selectedChecked ? "none" : "flex"}
+          displayTrash = {selectedTrash ? "none" : "flex"}
         />
     </Fragment>
   )
 }
 
 AppContent.propTypes = {
+  className: PropTypes.string,
+  fill: PropTypes.string,
+  display: PropTypes.string,
+  selectedAll: PropTypes.bool,
+  selectedTrash: PropTypes.bool.isRequired,
+  selectedChecked: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   allButton: PropTypes.func.isRequired,
   trashButton: PropTypes.func.isRequired,

@@ -50,23 +50,15 @@ module.exports = {
       }
     }
   },
-  fontAndImageLoader: {
-    test: /\.(svg|woff2)$/,
-    use: {
-      loader: 'url-loader',
-      options: {
-        limit: 50000
-      }
-    }
+  ImageLoader: {
+    test: /\.svg$/,
+    use: ['@svgr/webpack', 'url-loader'],
   },
-  // svgLoader: {
-  //   test: /\.svg$/,
-  //   loader: 'svg-inline-loader'
-  // },
   resolve: {
     alias: {
       src: path.join(__dirname, '..', 'src'),
-      components: path.join(__dirname, '..', 'src', 'components')
+      components: path.join(__dirname, '..', 'src', 'components'),
+      icons: path.join(__dirname, '..', 'icons')
     }
   }
 }

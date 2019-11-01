@@ -2,7 +2,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .users {
-  margin-top: -515px;
+  margin-top: -520px;
   margin-left: 235px;
   width: 77.5%;
   border-radius: 10px;
@@ -27,56 +27,63 @@
   }
   
   #name {
-    width: 100px;
+    width: 80px;
     border: transparent;
     margin-left: 25px;
     color: #2a3d50;
     font-size: 20px;
   }
   
-  #username {
-    width: 150px;
-    margin-left: 40px;
-    color: #a2a2a2;
-    font-size: 17px;
-  }
-  
-  #phone {
-    width: 150px;
-    margin-left: 40px;;
-    color: #a2a2a2;
-    font-size: 17px;
-  }
-  
-  #location {
+  #email {
     width: 250px;
     margin-left: 40px;
     color: #a2a2a2;
     font-size: 17px;
   }
   
+  #phone {
+    width: 120px;
+    margin-left: 40px;;
+    color: #a2a2a2;
+    font-size: 17px;
+  }
+  
+  #location {
+    width: 235px;
+    margin-left: 40px;
+    color: #a2a2a2;
+    font-size: 17px;
+  }
+
+  #buttons {
+    margin-right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
   #check {
     margin-left: 20px;
-    height: 16px;
-    width: 16px;
     border: transparent;
-    filter: invert(60%);
+    fill: #a2a2a2;
   }
 
   #check:hover {
     cursor: pointer;
+    fill: #a4cb09;
   }
   
   #trashcan {
-    margin-left: 50px;
     height: 17px;
     width: 16px;
     border: transparent;
-    filter: invert(70%);
+    fill: #a2a2a2;
   }
 
   #trashcan:hover {
     cursor: pointer;
+    fill: #a4cb09;
+
   }
   
   #all-inside {
@@ -97,8 +104,30 @@
 
   #all-outside:hover {
     cursor: pointer;
+    margin-left: 20px;
+    height: 15px;
+    width: 15px;
+    border: 2px dotted #a4cb09;
+    display: flex;
+    justify-content: space-around;
   }
 
+  #all-inside:hover {
+    margin-top: 1px ;
+    height: 9px;
+    width: 9px;
+    border: 2px solid #a4cb09;
+  }
 
+  #data {
+    width: 89%;
+    border: transparent;
+    display: flex;
+    align-items: center;
+  }
+
+  #data:hover {
+    cursor: pointer;
+  }
 }
 

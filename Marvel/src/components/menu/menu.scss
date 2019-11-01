@@ -10,7 +10,6 @@
   margin-left: 0;
   padding-top: 19px;
   padding-left: 25px;
-  color: #888888;
   background-color: #FFFFFF;
   text-align: left;
   font-size: 20px;
@@ -20,7 +19,6 @@
   box-shadow: 6px 0 10px -6px #C9C9C9;
   
   p {
-    color: #888888;
     font-weight: lighter;
     text-decoration: none;
     display: flex;
@@ -32,56 +30,42 @@
   }
   
   p:focus {
-    color: #a4cb09;
     outline: none;
-
-    #all-inside {
-      margin-top: 1px;
-      height: 9px;
-      width: 9px;
-      border: 2px solid #a4cb09;
-      display: flex;
-    }
-  
-    #all-outside {
-      height: 15px;
-      width: 15px;
-      border: 2px dotted #a4cb09;
-      display: flex;
-      justify-content: space-around;
-    }
   }
 
   #all-inside {
     margin-top: 1px;
     height: 9px;
     width: 9px;
-    border: 2px solid #a2a2a2;
+    border: 2px solid;
     display: flex;
   }
 
   #all-outside {
     height: 15px;
     width: 15px;
-    border: 2px dotted #a2a2a2;
+    border: 2px dotted;
     display: flex;
     justify-content: space-around;
   }
-  
-  #check {
-    margin-left: -5px;
-    filter: invert(60%);
-    height: 21px;
-    width: 19px;
-  }
-  
-  #trashcan {
-    height: 16px;
-    width: 14px;
-    filter: invert(70%);
-  }
    
-  #text {
+  #text-all {
     margin-left: 25px;
   }
+
+  #text-check {
+    margin-left: 23px;
+  }
+
+  #text-trash {
+    margin-left: 19px;
+  }
+}
+
+.enabled {
+  color: #a4cb09;
+}
+
+.disabled {
+  color: #888888;
 }

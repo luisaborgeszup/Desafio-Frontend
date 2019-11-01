@@ -2,22 +2,48 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import {ReactComponent as DeleteSVG} from 'icons/delete.svg'
+import {ReactComponent as CheckedSVG} from 'icons/checked.svg'
 import './users.scss'
 
-const Users = ({users, allButton, checkedButton, trashButton}) => (
+const Users = ({
+  users,
+  allButton,
+  checkedButton,
+  trashButton,
+  displayAll,
+  displayChecked,
+  displayTrash
+}) => (
   <div>
     {users.length ? (
       <div className="users">
         {users.length && users.map((user, index) => (
           <div key={index} className="user">
-            <span><img src={user.picture.thumbnail} id="image"></img></span>
-            <span id="name">{user.name.first}</span>
-            <span id="username">{user.login.username}</span>
-            <span id="phone">{user.phone}</span>
-            <span id="location">{user.location.city} - {user.location.state}</span>
-            <img src="../../icons/trashcan.png" id="trashcan" onClick={() => trashButton(user.login.username)}></img>
-            <span id="all-outside" onClick={() => allButton(user.login.username)} ><span  id="all-inside"></span></span>
-            <img src="../../icons/checked.png" id="check" onClick={() => checkedButton(user.login.username)}></img>
+            <span id="data">
+              <span><img src={user.picture.thumbnail} id="image"></img></span>
+              <span id="name">{user.name.first}</span>
+              <span id="email">{user.email}</span>
+              <span id="phone">{user.phone}</span>
+              <span id="location">{user.location.city} - {user.location.state}</span>
+            </span>
+            <span id="buttons">
+              <DeleteSVG 
+                id="trashcan" 
+                onClick={() => trashButton(user.login.username)}
+                display = {displayTrash}
+              />
+              <span 
+                id="all-outside" 
+                onClick={() => allButton(user.login.username)} 
+                display = {displayAll}
+              ><span  id="all-inside"></span></span>
+              <CheckedSVG
+                id="check"
+                onClick={() => checkedButton(user.login.username)}
+                display = {displayChecked}
+              />
+            </span>
           </div>
         ))}
       </div>
@@ -47,7 +73,10 @@ Users.propTypes = {
   })),
   allButton: PropTypes.func.isRequired,
   checkedButton: PropTypes.func.isRequired,
-  trashButton: PropTypes.func.isRequired
+  trashButton: PropTypes.func.isRequired,
+  displayTrash: PropTypes.string,
+  displayAll: PropTypes.string,
+  displayChecked: PropTypes.string
 }
 
 export default Users
