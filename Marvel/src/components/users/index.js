@@ -8,6 +8,7 @@ import './users.scss'
 
 const Users = ({
   users,
+  renderUser,
   allButton,
   checkedButton,
   trashButton,
@@ -20,7 +21,7 @@ const Users = ({
       <div className="users">
         {users.length && users.map((user, index) => (
           <div key={index} className="user">
-            <span id="data">
+            <span id="data" onClick={() => renderUser(user._id)}>
               <span><img src={user.picture.thumbnail} id="image"></img></span>
               <span id="name">{user.name.first}</span>
               <span id="email">{user.email}</span>
@@ -71,6 +72,7 @@ Users.propTypes = {
       thumbnail: PropTypes.string.isRequired
     })
   })),
+  renderUser: PropTypes.func,
   allButton: PropTypes.func.isRequired,
   checkedButton: PropTypes.func.isRequired,
   trashButton: PropTypes.func.isRequired,

@@ -12,22 +12,38 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      profile: [],
       users: [],
       checkedUsers: [],
       discardedUsers: [],
       activeList: "all",
+      fill: "#a2a2a2",
+      display: "#a2a2a2",
+      userPage: false,
+      renderPage: '/',
+      selectedAvatar: false,
+      selectedEmail: false,
+      selectedDob: false,
+      selectedLocation: false,
+      selectedPhone: false,
+      selectedPassword: false,
       selectedTrash: false,
       selectedAll: true,
       selectedChecked: false
     }
+    this.getProfile = this.getProfile.bind(this)
     this.getUsers = this.getUsers.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.iconDisplay = this.iconDisplay.bind(this)
+    this.previousPage = this.previousPage.bind(this)
+    this.renderUser = this.renderUser.bind(this)
     this.Button = this.Button.bind(this)
     this.menuOption = this.menuOption.bind(this)
   }
 
   componentDidMount() {
     this.getUsers()
+    this.getProfile()
   }
 
   getMarvelApiUrl(list, type, data) {
@@ -110,9 +126,21 @@ class App extends Component {
       const {
         data: dataUsers
       } = await axios.get(this.getMarvelApiUrl("users"))
+      for (let i = 0; i < dataUsers.length; i++) {
+        dataUsers[i]["dob"]["date"] = dataUsers[i]["dob"]["date"].replace(/-/g, "/")
+        dataUsers[i]["dob"]["date"] = dataUsers[i]["dob"]["date"].slice(0, 10)
+        dataUsers[i]["dob"]["date"] = dataUsers[i]["dob"]["date"].split("/")
+        dataUsers[i]["dob"]["date"] = dataUsers[i]["dob"]["date"].reverse()
+        dataUsers[i]["dob"]["date"] = dataUsers[i]["dob"]["date"].join("/")
+      }
+      dataUsers[0]["profileUser"] = true
+      const userProfile = dataUsers[0]
+      dataUsers.splice(0, 1)
       this.setState({
-        users: dataUsers
-      })
+        users: dataUsers,
+      }, () => axios.put(this.getMarvelApiUrl("users", "emails", userProfile["email"]), {
+        ...userProfile
+      }))
       const {
         data: dataCheckedUsers
       } = await axios.get(this.getMarvelApiUrl("checked"))
@@ -127,6 +155,32 @@ class App extends Component {
       })      
     } catch (error) {
       alert("Couldn't find the users!")
+    }
+  }
+
+  async renderUser(id) {
+    try {
+      const {data} = await axios.get(this.getMarvelApiUrl("users", id))
+      this.setState({
+        users: data,
+        userPage: true,
+        renderPage: `/user/${data[0]._id}`
+      })
+    } catch (error) {
+      alert("Couldn't render this user!")
+    }
+  }
+
+  async getProfile() {
+    try {
+      const {
+        data: profileData
+      } = await axios.get(this.getMarvelApiUrl("profile"))
+      this.setState({
+        profile: profileData
+      })
+    } catch (error) {
+      alert("Couldn't find the profile data!")
     }
   }
 
@@ -251,12 +305,94 @@ class App extends Component {
     return checkedUsers
   }
 
+  iconDisplay (icon) {
+    if (icon === "avatar") {
+      this.setState({
+        selectedAvatar: true,
+        selectedEmail: false,
+        selectedDob: false,
+        selectedLocation: false,
+        selectedPhone: false,
+        selectedPassword: false,
+      })
+    }
+    if (icon === "email") {
+      this.setState({
+        selectedAvatar: false,
+        selectedEmail: true,
+        selectedDob: false,
+        selectedLocation: false,
+        selectedPhone: false,
+        selectedPassword: false,
+      })
+    }
+    if (icon === "dob") {
+      this.setState({
+        selectedAvatar: false,
+        selectedEmail: false,
+        selectedDob: true,
+        selectedLocation: false,
+        selectedPhone: false,
+        selectedPassword: false,
+      })
+    }
+    if (icon === "location") {
+      this.setState({
+        selectedAvatar: false,
+        selectedEmail: false,
+        selectedDob: false,
+        selectedLocation: true,
+        selectedPhone: false,
+        selectedPassword: false,
+      })
+    }
+    if (icon === "phone") {
+      this.setState({
+        selectedAvatar: false,
+        selectedEmail: false,
+        selectedDob: false,
+        selectedLocation: false,
+        selectedPhone: true,
+        selectedPassword: false,
+      })
+    }
+    if (icon === "password") {
+      this.setState({
+        selectedAvatar: false,
+        selectedEmail: false,
+        selectedDob: false,
+        selectedLocation: false,
+        selectedPhone: false,
+        selectedPassword: true,
+      })
+    }
+  }
+
+  previousPage () {
+    try {
+      this.getUsers()
+      this.setState({
+        userPage: false,
+      })
+    }
+    catch (error) {
+      alert("Couldn't return to home page!")
+    }
+  }
+
+  redrectToPath () {
+    return this.state.renderPage
+  }
+
   render() {
     return ( 
       <Fragment>
         <AppContent 
           {
           ...this.state
+        }
+        getProfile = {
+          this.getProfile
         }
         getUsers = {
           this.getUsers
@@ -266,6 +402,18 @@ class App extends Component {
         }
         handleSearch = {
           this.handleSearch
+        }
+        iconDisplay = {
+          this.iconDisplay
+        }
+        previousPage = {
+          this.previousPage
+        }
+        renderUser = {
+          this.renderUser
+        }
+        redrectToPath = {
+          this.redrectToPath
         }
         allButton = {
           (value) => this.Button("all", value)
